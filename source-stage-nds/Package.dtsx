@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="54"
-  DTS:VersionGUID="{ACDB6BA2-FB56-4C1C-ACB8-4CD20DC27756}">
+  DTS:VersionBuild="72"
+  DTS:VersionGUID="{973C2C3B-AB82-443E-A1C3-9DD0EA6DA332}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -413,7 +413,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAB/5FVsbE70qCpweJOwVhiQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAy+bB6yDdPUW112jx0q/ZmSh4RAc7XgCYTpZ/tn+1jfwAAAAAOgAAAAAIAACAAAACPYzq3cOKFpqQwLJna2UP35ouLyWZsqD1EabxL2nYnYCAAAABnZaTw001cqQFgl6TQ0tafZSzL61JmSD16RVBltfhFg0AAAADi+e6DqzlAI8YVj3EBzrXBxerbDVizCiMdy30/RETeK7WDm310dh6+UN6+pr+3ntc4XlNhJG8ULHpo7wiOpkJ5</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAB/5FVsbE70qCpweJOwVhiQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAC+XsC4GPWPP/5foTBhrJe8UOswX3BjUbbyP6h4amyitwAAAAAOgAAAAAIAACAAAADjRC8cKFTyt5JFUTle8JXxzUToo1M5sYB570+0ysM3iSAAAAAliIRCuXETa6qpy5+jX+0WLOg/G0H8bQqY3mow2kCNlEAAAAAjueZiKfByet8QLNQNv5kO1oBGHYrVO4XwJXv1ADwdoIpo61IMR5LxkXbz6N35leHn/zu3YFa/dWtwhhaMtKZP</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -481,7 +481,7 @@
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{5244FE6A-1413-4331-9CE4-8A9998F12A1C}"
-              SQLTask:SqlStatementSource="select max (last_updated_value) from tbl_config_table where table_name = '[STAGE].[tblAqiDatas]';"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE [STAGE].zzz_tbl_aqi_datas;&#xA;select max (last_updated_value) from [STAGE].tbl_config_table where table_name = '[STAGE].[tbl_aqi_datas]';"
               SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ResultBinding
                 SQLTask:ResultName="0"
@@ -1715,11 +1715,12 @@
                   version="1">
                   <inputs>
                     <input
-                      refId="Package\CSV TO STAGE\get new or modified data\Combine stream.Inputs[Union All Input 1]"
-                      name="Union All Input 1">
+                      refId="Package\CSV TO STAGE\get new or modified data\Combine stream.Inputs[Union All Input 4]"
+                      hasSideEffects="true"
+                      name="Union All Input 4">
                       <inputColumns>
                         <inputColumn
-                          refId="Package\CSV TO STAGE\get new or modified data\Combine stream.Inputs[Union All Input 1].Columns[State Name]"
+                          refId="Package\CSV TO STAGE\get new or modified data\Combine stream.Inputs[Union All Input 4].Columns[State Name]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="50"
@@ -1734,7 +1735,7 @@
                           </properties>
                         </inputColumn>
                         <inputColumn
-                          refId="Package\CSV TO STAGE\get new or modified data\Combine stream.Inputs[Union All Input 1].Columns[county Name]"
+                          refId="Package\CSV TO STAGE\get new or modified data\Combine stream.Inputs[Union All Input 4].Columns[county Name]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="50"
@@ -1749,7 +1750,7 @@
                           </properties>
                         </inputColumn>
                         <inputColumn
-                          refId="Package\CSV TO STAGE\get new or modified data\Combine stream.Inputs[Union All Input 1].Columns[State Code]"
+                          refId="Package\CSV TO STAGE\get new or modified data\Combine stream.Inputs[Union All Input 4].Columns[State Code]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="50"
@@ -1764,7 +1765,7 @@
                           </properties>
                         </inputColumn>
                         <inputColumn
-                          refId="Package\CSV TO STAGE\get new or modified data\Combine stream.Inputs[Union All Input 1].Columns[County Code]"
+                          refId="Package\CSV TO STAGE\get new or modified data\Combine stream.Inputs[Union All Input 4].Columns[County Code]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="50"
@@ -1779,7 +1780,7 @@
                           </properties>
                         </inputColumn>
                         <inputColumn
-                          refId="Package\CSV TO STAGE\get new or modified data\Combine stream.Inputs[Union All Input 1].Columns[Date]"
+                          refId="Package\CSV TO STAGE\get new or modified data\Combine stream.Inputs[Union All Input 4].Columns[Date]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="50"
@@ -1794,7 +1795,7 @@
                           </properties>
                         </inputColumn>
                         <inputColumn
-                          refId="Package\CSV TO STAGE\get new or modified data\Combine stream.Inputs[Union All Input 1].Columns[AQI]"
+                          refId="Package\CSV TO STAGE\get new or modified data\Combine stream.Inputs[Union All Input 4].Columns[AQI]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="50"
@@ -1809,7 +1810,7 @@
                           </properties>
                         </inputColumn>
                         <inputColumn
-                          refId="Package\CSV TO STAGE\get new or modified data\Combine stream.Inputs[Union All Input 1].Columns[Category]"
+                          refId="Package\CSV TO STAGE\get new or modified data\Combine stream.Inputs[Union All Input 4].Columns[Category]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="50"
@@ -1824,7 +1825,7 @@
                           </properties>
                         </inputColumn>
                         <inputColumn
-                          refId="Package\CSV TO STAGE\get new or modified data\Combine stream.Inputs[Union All Input 1].Columns[Defining Parameter]"
+                          refId="Package\CSV TO STAGE\get new or modified data\Combine stream.Inputs[Union All Input 4].Columns[Defining Parameter]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="50"
@@ -1839,7 +1840,7 @@
                           </properties>
                         </inputColumn>
                         <inputColumn
-                          refId="Package\CSV TO STAGE\get new or modified data\Combine stream.Inputs[Union All Input 1].Columns[Defining Site]"
+                          refId="Package\CSV TO STAGE\get new or modified data\Combine stream.Inputs[Union All Input 4].Columns[Defining Site]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="50"
@@ -1854,7 +1855,7 @@
                           </properties>
                         </inputColumn>
                         <inputColumn
-                          refId="Package\CSV TO STAGE\get new or modified data\Combine stream.Inputs[Union All Input 1].Columns[Number of Sites Reporting]"
+                          refId="Package\CSV TO STAGE\get new or modified data\Combine stream.Inputs[Union All Input 4].Columns[Number of Sites Reporting]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="50"
@@ -1869,7 +1870,7 @@
                           </properties>
                         </inputColumn>
                         <inputColumn
-                          refId="Package\CSV TO STAGE\get new or modified data\Combine stream.Inputs[Union All Input 1].Columns[Created]"
+                          refId="Package\CSV TO STAGE\get new or modified data\Combine stream.Inputs[Union All Input 4].Columns[Created]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="50"
@@ -1884,12 +1885,200 @@
                           </properties>
                         </inputColumn>
                         <inputColumn
-                          refId="Package\CSV TO STAGE\get new or modified data\Combine stream.Inputs[Union All Input 1].Columns[Last Updated]"
+                          refId="Package\CSV TO STAGE\get new or modified data\Combine stream.Inputs[Union All Input 4].Columns[Last Updated]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="50"
                           cachedName="Last Updated"
                           lineageId="Package\CSV TO STAGE\get new or modified data\2021 source.Outputs[Flat File Source Output].Columns[Last Updated]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\CSV TO STAGE\get new or modified data\Combine stream.Outputs[Union All Output 1].Columns[Last Updated]}</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                    <input
+                      refId="Package\CSV TO STAGE\get new or modified data\Combine stream.Inputs[Union All Input 1]"
+                      hasSideEffects="true"
+                      name="Union All Input 1">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\CSV TO STAGE\get new or modified data\Combine stream.Inputs[Union All Input 1].Columns[State Name]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="State Name"
+                          lineageId="Package\CSV TO STAGE\get new or modified data\2022 source.Outputs[Flat File Source Output].Columns[State Name]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\CSV TO STAGE\get new or modified data\Combine stream.Outputs[Union All Output 1].Columns[State Name]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\CSV TO STAGE\get new or modified data\Combine stream.Inputs[Union All Input 1].Columns[county Name]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="county Name"
+                          lineageId="Package\CSV TO STAGE\get new or modified data\2022 source.Outputs[Flat File Source Output].Columns[county Name]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\CSV TO STAGE\get new or modified data\Combine stream.Outputs[Union All Output 1].Columns[county Name]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\CSV TO STAGE\get new or modified data\Combine stream.Inputs[Union All Input 1].Columns[State Code]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="State Code"
+                          lineageId="Package\CSV TO STAGE\get new or modified data\2022 source.Outputs[Flat File Source Output].Columns[State Code]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\CSV TO STAGE\get new or modified data\Combine stream.Outputs[Union All Output 1].Columns[State Code]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\CSV TO STAGE\get new or modified data\Combine stream.Inputs[Union All Input 1].Columns[County Code]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="County Code"
+                          lineageId="Package\CSV TO STAGE\get new or modified data\2022 source.Outputs[Flat File Source Output].Columns[County Code]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\CSV TO STAGE\get new or modified data\Combine stream.Outputs[Union All Output 1].Columns[County Code]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\CSV TO STAGE\get new or modified data\Combine stream.Inputs[Union All Input 1].Columns[Date]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Date"
+                          lineageId="Package\CSV TO STAGE\get new or modified data\2022 source.Outputs[Flat File Source Output].Columns[Date]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\CSV TO STAGE\get new or modified data\Combine stream.Outputs[Union All Output 1].Columns[Date]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\CSV TO STAGE\get new or modified data\Combine stream.Inputs[Union All Input 1].Columns[AQI]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="AQI"
+                          lineageId="Package\CSV TO STAGE\get new or modified data\2022 source.Outputs[Flat File Source Output].Columns[AQI]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\CSV TO STAGE\get new or modified data\Combine stream.Outputs[Union All Output 1].Columns[AQI]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\CSV TO STAGE\get new or modified data\Combine stream.Inputs[Union All Input 1].Columns[Category]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Category"
+                          lineageId="Package\CSV TO STAGE\get new or modified data\2022 source.Outputs[Flat File Source Output].Columns[Category]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\CSV TO STAGE\get new or modified data\Combine stream.Outputs[Union All Output 1].Columns[Category]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\CSV TO STAGE\get new or modified data\Combine stream.Inputs[Union All Input 1].Columns[Defining Parameter]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Defining Parameter"
+                          lineageId="Package\CSV TO STAGE\get new or modified data\2022 source.Outputs[Flat File Source Output].Columns[Defining Parameter]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\CSV TO STAGE\get new or modified data\Combine stream.Outputs[Union All Output 1].Columns[Defining Parameter]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\CSV TO STAGE\get new or modified data\Combine stream.Inputs[Union All Input 1].Columns[Defining Site]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Defining Site"
+                          lineageId="Package\CSV TO STAGE\get new or modified data\2022 source.Outputs[Flat File Source Output].Columns[Defining Site]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\CSV TO STAGE\get new or modified data\Combine stream.Outputs[Union All Output 1].Columns[Defining Site]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\CSV TO STAGE\get new or modified data\Combine stream.Inputs[Union All Input 1].Columns[Number of Sites Reporting]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Number of Sites Reporting"
+                          lineageId="Package\CSV TO STAGE\get new or modified data\2022 source.Outputs[Flat File Source Output].Columns[Number of Sites Reporting]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\CSV TO STAGE\get new or modified data\Combine stream.Outputs[Union All Output 1].Columns[Number of Sites Reporting]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\CSV TO STAGE\get new or modified data\Combine stream.Inputs[Union All Input 1].Columns[Created]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Created"
+                          lineageId="Package\CSV TO STAGE\get new or modified data\2022 source.Outputs[Flat File Source Output].Columns[Created]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\CSV TO STAGE\get new or modified data\Combine stream.Outputs[Union All Output 1].Columns[Created]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\CSV TO STAGE\get new or modified data\Combine stream.Inputs[Union All Input 1].Columns[Last Updated]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Last Updated"
+                          lineageId="Package\CSV TO STAGE\get new or modified data\2022 source.Outputs[Flat File Source Output].Columns[Last Updated]">
                           <properties>
                             <property
                               containsID="true"
@@ -1912,7 +2101,7 @@
                           cachedDataType="str"
                           cachedLength="50"
                           cachedName="State Name"
-                          lineageId="Package\CSV TO STAGE\get new or modified data\2022 source.Outputs[Flat File Source Output].Columns[State Name]">
+                          lineageId="Package\CSV TO STAGE\get new or modified data\2023 source.Outputs[Flat File Source Output].Columns[State Name]">
                           <properties>
                             <property
                               containsID="true"
@@ -1927,7 +2116,7 @@
                           cachedDataType="str"
                           cachedLength="50"
                           cachedName="county Name"
-                          lineageId="Package\CSV TO STAGE\get new or modified data\2022 source.Outputs[Flat File Source Output].Columns[county Name]">
+                          lineageId="Package\CSV TO STAGE\get new or modified data\2023 source.Outputs[Flat File Source Output].Columns[county Name]">
                           <properties>
                             <property
                               containsID="true"
@@ -1942,7 +2131,7 @@
                           cachedDataType="str"
                           cachedLength="50"
                           cachedName="State Code"
-                          lineageId="Package\CSV TO STAGE\get new or modified data\2022 source.Outputs[Flat File Source Output].Columns[State Code]">
+                          lineageId="Package\CSV TO STAGE\get new or modified data\2023 source.Outputs[Flat File Source Output].Columns[State Code]">
                           <properties>
                             <property
                               containsID="true"
@@ -1957,7 +2146,7 @@
                           cachedDataType="str"
                           cachedLength="50"
                           cachedName="County Code"
-                          lineageId="Package\CSV TO STAGE\get new or modified data\2022 source.Outputs[Flat File Source Output].Columns[County Code]">
+                          lineageId="Package\CSV TO STAGE\get new or modified data\2023 source.Outputs[Flat File Source Output].Columns[County Code]">
                           <properties>
                             <property
                               containsID="true"
@@ -1972,7 +2161,7 @@
                           cachedDataType="str"
                           cachedLength="50"
                           cachedName="Date"
-                          lineageId="Package\CSV TO STAGE\get new or modified data\2022 source.Outputs[Flat File Source Output].Columns[Date]">
+                          lineageId="Package\CSV TO STAGE\get new or modified data\2023 source.Outputs[Flat File Source Output].Columns[Date]">
                           <properties>
                             <property
                               containsID="true"
@@ -1987,7 +2176,7 @@
                           cachedDataType="str"
                           cachedLength="50"
                           cachedName="AQI"
-                          lineageId="Package\CSV TO STAGE\get new or modified data\2022 source.Outputs[Flat File Source Output].Columns[AQI]">
+                          lineageId="Package\CSV TO STAGE\get new or modified data\2023 source.Outputs[Flat File Source Output].Columns[AQI]">
                           <properties>
                             <property
                               containsID="true"
@@ -2002,7 +2191,7 @@
                           cachedDataType="str"
                           cachedLength="50"
                           cachedName="Category"
-                          lineageId="Package\CSV TO STAGE\get new or modified data\2022 source.Outputs[Flat File Source Output].Columns[Category]">
+                          lineageId="Package\CSV TO STAGE\get new or modified data\2023 source.Outputs[Flat File Source Output].Columns[Category]">
                           <properties>
                             <property
                               containsID="true"
@@ -2017,7 +2206,7 @@
                           cachedDataType="str"
                           cachedLength="50"
                           cachedName="Defining Parameter"
-                          lineageId="Package\CSV TO STAGE\get new or modified data\2022 source.Outputs[Flat File Source Output].Columns[Defining Parameter]">
+                          lineageId="Package\CSV TO STAGE\get new or modified data\2023 source.Outputs[Flat File Source Output].Columns[Defining Parameter]">
                           <properties>
                             <property
                               containsID="true"
@@ -2032,7 +2221,7 @@
                           cachedDataType="str"
                           cachedLength="50"
                           cachedName="Defining Site"
-                          lineageId="Package\CSV TO STAGE\get new or modified data\2022 source.Outputs[Flat File Source Output].Columns[Defining Site]">
+                          lineageId="Package\CSV TO STAGE\get new or modified data\2023 source.Outputs[Flat File Source Output].Columns[Defining Site]">
                           <properties>
                             <property
                               containsID="true"
@@ -2047,7 +2236,7 @@
                           cachedDataType="str"
                           cachedLength="50"
                           cachedName="Number of Sites Reporting"
-                          lineageId="Package\CSV TO STAGE\get new or modified data\2022 source.Outputs[Flat File Source Output].Columns[Number of Sites Reporting]">
+                          lineageId="Package\CSV TO STAGE\get new or modified data\2023 source.Outputs[Flat File Source Output].Columns[Number of Sites Reporting]">
                           <properties>
                             <property
                               containsID="true"
@@ -2062,194 +2251,6 @@
                           cachedDataType="str"
                           cachedLength="50"
                           cachedName="Created"
-                          lineageId="Package\CSV TO STAGE\get new or modified data\2022 source.Outputs[Flat File Source Output].Columns[Created]">
-                          <properties>
-                            <property
-                              containsID="true"
-                              dataType="System.Int32"
-                              description="Output column lineage ID"
-                              name="OutputColumnLineageID">#{Package\CSV TO STAGE\get new or modified data\Combine stream.Outputs[Union All Output 1].Columns[Created]}</property>
-                          </properties>
-                        </inputColumn>
-                        <inputColumn
-                          refId="Package\CSV TO STAGE\get new or modified data\Combine stream.Inputs[Union All Input 2].Columns[Last Updated]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
-                          cachedLength="50"
-                          cachedName="Last Updated"
-                          lineageId="Package\CSV TO STAGE\get new or modified data\2022 source.Outputs[Flat File Source Output].Columns[Last Updated]">
-                          <properties>
-                            <property
-                              containsID="true"
-                              dataType="System.Int32"
-                              description="Output column lineage ID"
-                              name="OutputColumnLineageID">#{Package\CSV TO STAGE\get new or modified data\Combine stream.Outputs[Union All Output 1].Columns[Last Updated]}</property>
-                          </properties>
-                        </inputColumn>
-                      </inputColumns>
-                      <externalMetadataColumns />
-                    </input>
-                    <input
-                      refId="Package\CSV TO STAGE\get new or modified data\Combine stream.Inputs[Union All Input 3]"
-                      hasSideEffects="true"
-                      name="Union All Input 3">
-                      <inputColumns>
-                        <inputColumn
-                          refId="Package\CSV TO STAGE\get new or modified data\Combine stream.Inputs[Union All Input 3].Columns[State Name]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
-                          cachedLength="50"
-                          cachedName="State Name"
-                          lineageId="Package\CSV TO STAGE\get new or modified data\2023 source.Outputs[Flat File Source Output].Columns[State Name]">
-                          <properties>
-                            <property
-                              containsID="true"
-                              dataType="System.Int32"
-                              description="Output column lineage ID"
-                              name="OutputColumnLineageID">#{Package\CSV TO STAGE\get new or modified data\Combine stream.Outputs[Union All Output 1].Columns[State Name]}</property>
-                          </properties>
-                        </inputColumn>
-                        <inputColumn
-                          refId="Package\CSV TO STAGE\get new or modified data\Combine stream.Inputs[Union All Input 3].Columns[county Name]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
-                          cachedLength="50"
-                          cachedName="county Name"
-                          lineageId="Package\CSV TO STAGE\get new or modified data\2023 source.Outputs[Flat File Source Output].Columns[county Name]">
-                          <properties>
-                            <property
-                              containsID="true"
-                              dataType="System.Int32"
-                              description="Output column lineage ID"
-                              name="OutputColumnLineageID">#{Package\CSV TO STAGE\get new or modified data\Combine stream.Outputs[Union All Output 1].Columns[county Name]}</property>
-                          </properties>
-                        </inputColumn>
-                        <inputColumn
-                          refId="Package\CSV TO STAGE\get new or modified data\Combine stream.Inputs[Union All Input 3].Columns[State Code]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
-                          cachedLength="50"
-                          cachedName="State Code"
-                          lineageId="Package\CSV TO STAGE\get new or modified data\2023 source.Outputs[Flat File Source Output].Columns[State Code]">
-                          <properties>
-                            <property
-                              containsID="true"
-                              dataType="System.Int32"
-                              description="Output column lineage ID"
-                              name="OutputColumnLineageID">#{Package\CSV TO STAGE\get new or modified data\Combine stream.Outputs[Union All Output 1].Columns[State Code]}</property>
-                          </properties>
-                        </inputColumn>
-                        <inputColumn
-                          refId="Package\CSV TO STAGE\get new or modified data\Combine stream.Inputs[Union All Input 3].Columns[County Code]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
-                          cachedLength="50"
-                          cachedName="County Code"
-                          lineageId="Package\CSV TO STAGE\get new or modified data\2023 source.Outputs[Flat File Source Output].Columns[County Code]">
-                          <properties>
-                            <property
-                              containsID="true"
-                              dataType="System.Int32"
-                              description="Output column lineage ID"
-                              name="OutputColumnLineageID">#{Package\CSV TO STAGE\get new or modified data\Combine stream.Outputs[Union All Output 1].Columns[County Code]}</property>
-                          </properties>
-                        </inputColumn>
-                        <inputColumn
-                          refId="Package\CSV TO STAGE\get new or modified data\Combine stream.Inputs[Union All Input 3].Columns[Date]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
-                          cachedLength="50"
-                          cachedName="Date"
-                          lineageId="Package\CSV TO STAGE\get new or modified data\2023 source.Outputs[Flat File Source Output].Columns[Date]">
-                          <properties>
-                            <property
-                              containsID="true"
-                              dataType="System.Int32"
-                              description="Output column lineage ID"
-                              name="OutputColumnLineageID">#{Package\CSV TO STAGE\get new or modified data\Combine stream.Outputs[Union All Output 1].Columns[Date]}</property>
-                          </properties>
-                        </inputColumn>
-                        <inputColumn
-                          refId="Package\CSV TO STAGE\get new or modified data\Combine stream.Inputs[Union All Input 3].Columns[AQI]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
-                          cachedLength="50"
-                          cachedName="AQI"
-                          lineageId="Package\CSV TO STAGE\get new or modified data\2023 source.Outputs[Flat File Source Output].Columns[AQI]">
-                          <properties>
-                            <property
-                              containsID="true"
-                              dataType="System.Int32"
-                              description="Output column lineage ID"
-                              name="OutputColumnLineageID">#{Package\CSV TO STAGE\get new or modified data\Combine stream.Outputs[Union All Output 1].Columns[AQI]}</property>
-                          </properties>
-                        </inputColumn>
-                        <inputColumn
-                          refId="Package\CSV TO STAGE\get new or modified data\Combine stream.Inputs[Union All Input 3].Columns[Category]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
-                          cachedLength="50"
-                          cachedName="Category"
-                          lineageId="Package\CSV TO STAGE\get new or modified data\2023 source.Outputs[Flat File Source Output].Columns[Category]">
-                          <properties>
-                            <property
-                              containsID="true"
-                              dataType="System.Int32"
-                              description="Output column lineage ID"
-                              name="OutputColumnLineageID">#{Package\CSV TO STAGE\get new or modified data\Combine stream.Outputs[Union All Output 1].Columns[Category]}</property>
-                          </properties>
-                        </inputColumn>
-                        <inputColumn
-                          refId="Package\CSV TO STAGE\get new or modified data\Combine stream.Inputs[Union All Input 3].Columns[Defining Parameter]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
-                          cachedLength="50"
-                          cachedName="Defining Parameter"
-                          lineageId="Package\CSV TO STAGE\get new or modified data\2023 source.Outputs[Flat File Source Output].Columns[Defining Parameter]">
-                          <properties>
-                            <property
-                              containsID="true"
-                              dataType="System.Int32"
-                              description="Output column lineage ID"
-                              name="OutputColumnLineageID">#{Package\CSV TO STAGE\get new or modified data\Combine stream.Outputs[Union All Output 1].Columns[Defining Parameter]}</property>
-                          </properties>
-                        </inputColumn>
-                        <inputColumn
-                          refId="Package\CSV TO STAGE\get new or modified data\Combine stream.Inputs[Union All Input 3].Columns[Defining Site]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
-                          cachedLength="50"
-                          cachedName="Defining Site"
-                          lineageId="Package\CSV TO STAGE\get new or modified data\2023 source.Outputs[Flat File Source Output].Columns[Defining Site]">
-                          <properties>
-                            <property
-                              containsID="true"
-                              dataType="System.Int32"
-                              description="Output column lineage ID"
-                              name="OutputColumnLineageID">#{Package\CSV TO STAGE\get new or modified data\Combine stream.Outputs[Union All Output 1].Columns[Defining Site]}</property>
-                          </properties>
-                        </inputColumn>
-                        <inputColumn
-                          refId="Package\CSV TO STAGE\get new or modified data\Combine stream.Inputs[Union All Input 3].Columns[Number of Sites Reporting]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
-                          cachedLength="50"
-                          cachedName="Number of Sites Reporting"
-                          lineageId="Package\CSV TO STAGE\get new or modified data\2023 source.Outputs[Flat File Source Output].Columns[Number of Sites Reporting]">
-                          <properties>
-                            <property
-                              containsID="true"
-                              dataType="System.Int32"
-                              description="Output column lineage ID"
-                              name="OutputColumnLineageID">#{Package\CSV TO STAGE\get new or modified data\Combine stream.Outputs[Union All Output 1].Columns[Number of Sites Reporting]}</property>
-                          </properties>
-                        </inputColumn>
-                        <inputColumn
-                          refId="Package\CSV TO STAGE\get new or modified data\Combine stream.Inputs[Union All Input 3].Columns[Created]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
-                          cachedLength="50"
-                          cachedName="Created"
                           lineageId="Package\CSV TO STAGE\get new or modified data\2023 source.Outputs[Flat File Source Output].Columns[Created]">
                           <properties>
                             <property
@@ -2260,7 +2261,7 @@
                           </properties>
                         </inputColumn>
                         <inputColumn
-                          refId="Package\CSV TO STAGE\get new or modified data\Combine stream.Inputs[Union All Input 3].Columns[Last Updated]"
+                          refId="Package\CSV TO STAGE\get new or modified data\Combine stream.Inputs[Union All Input 2].Columns[Last Updated]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="50"
@@ -2278,10 +2279,10 @@
                       <externalMetadataColumns />
                     </input>
                     <input
-                      refId="Package\CSV TO STAGE\get new or modified data\Combine stream.Inputs[Union All Input 4]"
+                      refId="Package\CSV TO STAGE\get new or modified data\Combine stream.Inputs[Union All Input 3]"
                       dangling="true"
                       hasSideEffects="true"
-                      name="Union All Input 4">
+                      name="Union All Input 3">
                       <externalMetadataColumns />
                     </input>
                   </inputs>
@@ -2374,6 +2375,279 @@
                           length="50"
                           lineageId="Package\CSV TO STAGE\get new or modified data\Combine stream.Outputs[Union All Output 1].Columns[Last Updated]"
                           name="Last Updated" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\CSV TO STAGE\get new or modified data\Conditional Split 1"
+                  componentClassID="Microsoft.ConditionalSplit"
+                  contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+                  name="Conditional Split 1"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\CSV TO STAGE\get new or modified data\Conditional Split 1.Inputs[Conditional Split Input]"
+                      description="Input to the Conditional Split Transformation"
+                      name="Conditional Split Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\CSV TO STAGE\get new or modified data\Conditional Split 1.Inputs[Conditional Split Input].Columns[Last Updated]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Last Updated"
+                          lineageId="Package\CSV TO STAGE\get new or modified data\2021 source.Outputs[Flat File Source Output].Columns[Last Updated]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\CSV TO STAGE\get new or modified data\Conditional Split 1.Outputs[Case 1]"
+                      description="Output 1 of the Conditional Split Transformation"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="IgnoreFailure"
+                      exclusionGroup="1"
+                      name="Case 1"
+                      synchronousInputId="Package\CSV TO STAGE\get new or modified data\Conditional Split 1.Inputs[Conditional Split Input]"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                          name="Expression">(DT_DBTIMESTAMP)#{Package\CSV TO STAGE\get new or modified data\2021 source.Outputs[Flat File Source Output].Columns[Last Updated]} &gt; (DT_DBTIMESTAMP)@[User::last_updated_aqi]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the friendly version of the expression. This expression version uses column names."
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_DBTIMESTAMP)[Last Updated] &gt; (DT_DBTIMESTAMP)@[User::last_updated_aqi]</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                          name="EvaluationOrder">0</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\CSV TO STAGE\get new or modified data\Conditional Split 1.Outputs[Conditional Split Default Output]"
+                      description="Default Output of the Conditional Split Transformation"
+                      exclusionGroup="1"
+                      name="Conditional Split Default Output"
+                      synchronousInputId="Package\CSV TO STAGE\get new or modified data\Conditional Split 1.Inputs[Conditional Split Input]">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsDefaultOut">true</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\CSV TO STAGE\get new or modified data\Conditional Split 1.Outputs[Conditional Split Error Output]"
+                      description="Error Output of the Conditional Split Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Conditional Split Error Output"
+                      synchronousInputId="Package\CSV TO STAGE\get new or modified data\Conditional Split 1.Inputs[Conditional Split Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CSV TO STAGE\get new or modified data\Conditional Split 1.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\CSV TO STAGE\get new or modified data\Conditional Split 1.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\CSV TO STAGE\get new or modified data\Conditional Split 1.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\CSV TO STAGE\get new or modified data\Conditional Split 1.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\CSV TO STAGE\get new or modified data\Conditional Split 1 1"
+                  componentClassID="Microsoft.ConditionalSplit"
+                  contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+                  name="Conditional Split 1 1"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\CSV TO STAGE\get new or modified data\Conditional Split 1 1.Inputs[Conditional Split Input]"
+                      description="Input to the Conditional Split Transformation"
+                      name="Conditional Split Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\CSV TO STAGE\get new or modified data\Conditional Split 1 1.Inputs[Conditional Split Input].Columns[Last Updated]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Last Updated"
+                          lineageId="Package\CSV TO STAGE\get new or modified data\2022 source.Outputs[Flat File Source Output].Columns[Last Updated]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\CSV TO STAGE\get new or modified data\Conditional Split 1 1.Outputs[Case 1]"
+                      description="Output 1 of the Conditional Split Transformation"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="IgnoreFailure"
+                      exclusionGroup="1"
+                      name="Case 1"
+                      synchronousInputId="Package\CSV TO STAGE\get new or modified data\Conditional Split 1 1.Inputs[Conditional Split Input]"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                          name="Expression">(DT_DBTIMESTAMP)#{Package\CSV TO STAGE\get new or modified data\2022 source.Outputs[Flat File Source Output].Columns[Last Updated]} &gt; (DT_DBTIMESTAMP)@[User::last_updated_aqi]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the friendly version of the expression. This expression version uses column names."
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_DBTIMESTAMP)[Last Updated] &gt; (DT_DBTIMESTAMP)@[User::last_updated_aqi]</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                          name="EvaluationOrder">0</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\CSV TO STAGE\get new or modified data\Conditional Split 1 1.Outputs[Conditional Split Default Output]"
+                      description="Default Output of the Conditional Split Transformation"
+                      exclusionGroup="1"
+                      name="Conditional Split Default Output"
+                      synchronousInputId="Package\CSV TO STAGE\get new or modified data\Conditional Split 1 1.Inputs[Conditional Split Input]">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsDefaultOut">true</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\CSV TO STAGE\get new or modified data\Conditional Split 1 1.Outputs[Conditional Split Error Output]"
+                      description="Error Output of the Conditional Split Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Conditional Split Error Output"
+                      synchronousInputId="Package\CSV TO STAGE\get new or modified data\Conditional Split 1 1.Inputs[Conditional Split Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CSV TO STAGE\get new or modified data\Conditional Split 1 1.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\CSV TO STAGE\get new or modified data\Conditional Split 1 1.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\CSV TO STAGE\get new or modified data\Conditional Split 1 1.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\CSV TO STAGE\get new or modified data\Conditional Split 1 1.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\CSV TO STAGE\get new or modified data\Conditional Split 1 2"
+                  componentClassID="Microsoft.ConditionalSplit"
+                  contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+                  name="Conditional Split 1 2"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\CSV TO STAGE\get new or modified data\Conditional Split 1 2.Inputs[Conditional Split Input]"
+                      description="Input to the Conditional Split Transformation"
+                      name="Conditional Split Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\CSV TO STAGE\get new or modified data\Conditional Split 1 2.Inputs[Conditional Split Input].Columns[Last Updated]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Last Updated"
+                          lineageId="Package\CSV TO STAGE\get new or modified data\2023 source.Outputs[Flat File Source Output].Columns[Last Updated]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\CSV TO STAGE\get new or modified data\Conditional Split 1 2.Outputs[Case 1]"
+                      description="Output 1 of the Conditional Split Transformation"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="IgnoreFailure"
+                      exclusionGroup="1"
+                      name="Case 1"
+                      synchronousInputId="Package\CSV TO STAGE\get new or modified data\Conditional Split 1 2.Inputs[Conditional Split Input]"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                          name="Expression">(DT_DBTIMESTAMP)#{Package\CSV TO STAGE\get new or modified data\2023 source.Outputs[Flat File Source Output].Columns[Last Updated]} &gt; (DT_DBTIMESTAMP)@[User::last_updated_aqi]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the friendly version of the expression. This expression version uses column names."
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_DBTIMESTAMP)[Last Updated] &gt; (DT_DBTIMESTAMP)@[User::last_updated_aqi]</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                          name="EvaluationOrder">0</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\CSV TO STAGE\get new or modified data\Conditional Split 1 2.Outputs[Conditional Split Default Output]"
+                      description="Default Output of the Conditional Split Transformation"
+                      exclusionGroup="1"
+                      name="Conditional Split Default Output"
+                      synchronousInputId="Package\CSV TO STAGE\get new or modified data\Conditional Split 1 2.Inputs[Conditional Split Input]">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsDefaultOut">true</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\CSV TO STAGE\get new or modified data\Conditional Split 1 2.Outputs[Conditional Split Error Output]"
+                      description="Error Output of the Conditional Split Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Conditional Split Error Output"
+                      synchronousInputId="Package\CSV TO STAGE\get new or modified data\Conditional Split 1 2.Inputs[Conditional Split Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CSV TO STAGE\get new or modified data\Conditional Split 1 2.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\CSV TO STAGE\get new or modified data\Conditional Split 1 2.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\CSV TO STAGE\get new or modified data\Conditional Split 1 2.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\CSV TO STAGE\get new or modified data\Conditional Split 1 2.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
                       </outputColumns>
                       <externalMetadataColumns />
                     </output>
@@ -2772,14 +3046,14 @@
                       description="Specifies the SQL statement that generates the lookup table."
                       expressionType="Notify"
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [STAGE].[tblAqiDatas]</property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [STAGE].[tbl_aqi_datas]</property>
                     <property
                       dataType="System.String"
                       description="Specifies a SQL statement that uses parameters to generate the lookup table."
                       expressionType="Notify"
                       name="SqlCommandParam"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [STAGE].[tblAqiDatas]) [refTable]
-where [refTable].[created] = ? and [refTable].[last_updated] = ? and [refTable].[defining_parameter] = ? and [refTable].[defining_site] = ? and [refTable].[state_name] = ? and [refTable].[county_name] = ? and [refTable].[state_code] = ? and [refTable].[county_code] = ? and [refTable].[date] = ? and [refTable].[category] = ? and [refTable].[number_of_sites_reporting] = ? and [refTable].[aqi] = ?</property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [STAGE].[tbl_aqi_datas]) [refTable]
+where [refTable].[created] = ? and [refTable].[last_updated] = ? and [refTable].[state_name] = ? and [refTable].[county_name] = ? and [refTable].[state_code] = ? and [refTable].[county_code] = ? and [refTable].[date] = ? and [refTable].[category] = ? and [refTable].[defining_parameter] = ? and [refTable].[defining_site] = ? and [refTable].[number_of_sites_reporting] = ? and [refTable].[aqi] = ?</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the type of connection used to access the reference dataset."
@@ -2815,7 +3089,7 @@ where [refTable].[created] = ? and [refTable].[last_updated] = ? and [refTable].
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                      name="ParameterMap">#{Package\CSV TO STAGE\get new or modified data\551:invalid};#{Package\CSV TO STAGE\get new or modified data\552:invalid};#{Package\CSV TO STAGE\get new or modified data\553:invalid};#{Package\CSV TO STAGE\get new or modified data\554:invalid};#{Package\CSV TO STAGE\get new or modified data\555:invalid};#{Package\CSV TO STAGE\get new or modified data\556:invalid};#{Package\CSV TO STAGE\get new or modified data\557:invalid};#{Package\CSV TO STAGE\get new or modified data\558:invalid};#{Package\CSV TO STAGE\get new or modified data\559:invalid};#{Package\CSV TO STAGE\get new or modified data\560:invalid};#{Package\CSV TO STAGE\get new or modified data\561:invalid};#{Package\CSV TO STAGE\get new or modified data\562:invalid};</property>
+                      name="ParameterMap">#{Package\CSV TO STAGE\get new or modified data\Sort and Remove Duplicates.Outputs[Sort Output].Columns[created]};#{Package\CSV TO STAGE\get new or modified data\Sort and Remove Duplicates.Outputs[Sort Output].Columns[last_updated]};#{Package\CSV TO STAGE\get new or modified data\Sort and Remove Duplicates.Outputs[Sort Output].Columns[state_name]};#{Package\CSV TO STAGE\get new or modified data\Sort and Remove Duplicates.Outputs[Sort Output].Columns[county_name]};#{Package\CSV TO STAGE\get new or modified data\Sort and Remove Duplicates.Outputs[Sort Output].Columns[state_code]};#{Package\CSV TO STAGE\get new or modified data\Sort and Remove Duplicates.Outputs[Sort Output].Columns[county_code]};#{Package\CSV TO STAGE\get new or modified data\Sort and Remove Duplicates.Outputs[Sort Output].Columns["date"]};#{Package\CSV TO STAGE\get new or modified data\Sort and Remove Duplicates.Outputs[Sort Output].Columns[category]};#{Package\CSV TO STAGE\get new or modified data\Sort and Remove Duplicates.Outputs[Sort Output].Columns[defining_parameter]};#{Package\CSV TO STAGE\get new or modified data\Sort and Remove Duplicates.Outputs[Sort Output].Columns[defining_site]};#{Package\CSV TO STAGE\get new or modified data\Sort and Remove Duplicates.Outputs[Sort Output].Columns[number_of_site_reporting]};#{Package\CSV TO STAGE\get new or modified data\Sort and Remove Duplicates.Outputs[Sort Output].Columns[aqi]};</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -3657,7 +3931,7 @@ where [refTable].[created] = ? and [refTable].[last_updated] = ? and [refTable].
                     <property
                       dataType="System.String"
                       description="Specifies the name of the database object used to open a rowset."
-                      name="OpenRowset">[STAGE].[tblAqiDatas]</property>
+                      name="OpenRowset">[STAGE].[tbl_aqi_datas]</property>
                     <property
                       dataType="System.String"
                       description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -3895,7 +4169,7 @@ where [refTable].[created] = ? and [refTable].[last_updated] = ? and [refTable].
                     <property
                       dataType="System.String"
                       description="Specifies the name of the database object used to open a rowset."
-                      name="OpenRowset">[Stage tblTempAqiDatas]</property>
+                      name="OpenRowset">[STAGE].[zzz_tbl_aqi_datas]</property>
                     <property
                       dataType="System.String"
                       description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -3973,12 +4247,6 @@ where [refTable].[created] = ? and [refTable].[last_updated] = ? and [refTable].
                           externalMetadataColumnId="Package\CSV TO STAGE\get new or modified data\Stage tblTempAqiDatas.Inputs[OLE DB Destination Input].ExternalColumns[county_code]"
                           lineageId="Package\CSV TO STAGE\get new or modified data\Sort and Remove Duplicates.Outputs[Sort Output].Columns[county_code]" />
                         <inputColumn
-                          refId="Package\CSV TO STAGE\get new or modified data\Stage tblTempAqiDatas.Inputs[OLE DB Destination Input].Columns[&quot;date&quot;]"
-                          cachedDataType="dbDate"
-                          cachedName="&quot;date&quot;"
-                          externalMetadataColumnId="Package\CSV TO STAGE\get new or modified data\Stage tblTempAqiDatas.Inputs[OLE DB Destination Input].ExternalColumns[&quot;date&quot;]"
-                          lineageId="Package\CSV TO STAGE\get new or modified data\Sort and Remove Duplicates.Outputs[Sort Output].Columns[&quot;date&quot;]" />
-                        <inputColumn
                           refId="Package\CSV TO STAGE\get new or modified data\Stage tblTempAqiDatas.Inputs[OLE DB Destination Input].Columns[category]"
                           cachedDataType="wstr"
                           cachedLength="50"
@@ -4007,12 +4275,6 @@ where [refTable].[created] = ? and [refTable].[last_updated] = ? and [refTable].
                           externalMetadataColumnId="Package\CSV TO STAGE\get new or modified data\Stage tblTempAqiDatas.Inputs[OLE DB Destination Input].ExternalColumns[aqi]"
                           lineageId="Package\CSV TO STAGE\get new or modified data\Sort and Remove Duplicates.Outputs[Sort Output].Columns[aqi]" />
                         <inputColumn
-                          refId="Package\CSV TO STAGE\get new or modified data\Stage tblTempAqiDatas.Inputs[OLE DB Destination Input].Columns[number_of_site_reporting]"
-                          cachedDataType="i4"
-                          cachedName="number_of_site_reporting"
-                          externalMetadataColumnId="Package\CSV TO STAGE\get new or modified data\Stage tblTempAqiDatas.Inputs[OLE DB Destination Input].ExternalColumns[number_of_site_reporting]"
-                          lineageId="Package\CSV TO STAGE\get new or modified data\Sort and Remove Duplicates.Outputs[Sort Output].Columns[number_of_site_reporting]" />
-                        <inputColumn
                           refId="Package\CSV TO STAGE\get new or modified data\Stage tblTempAqiDatas.Inputs[OLE DB Destination Input].Columns[created]"
                           cachedDataType="dbTimeStamp"
                           cachedName="created"
@@ -4037,12 +4299,12 @@ where [refTable].[created] = ? and [refTable].[last_updated] = ? and [refTable].
                         <externalMetadataColumn
                           refId="Package\CSV TO STAGE\get new or modified data\Stage tblTempAqiDatas.Inputs[OLE DB Destination Input].ExternalColumns[state_name]"
                           dataType="wstr"
-                          length="50"
+                          length="100"
                           name="state_name" />
                         <externalMetadataColumn
                           refId="Package\CSV TO STAGE\get new or modified data\Stage tblTempAqiDatas.Inputs[OLE DB Destination Input].ExternalColumns[county_name]"
                           dataType="wstr"
-                          length="50"
+                          length="100"
                           name="county_name" />
                         <externalMetadataColumn
                           refId="Package\CSV TO STAGE\get new or modified data\Stage tblTempAqiDatas.Inputs[OLE DB Destination Input].ExternalColumns[state_code]"
@@ -4052,10 +4314,6 @@ where [refTable].[created] = ? and [refTable].[last_updated] = ? and [refTable].
                           refId="Package\CSV TO STAGE\get new or modified data\Stage tblTempAqiDatas.Inputs[OLE DB Destination Input].ExternalColumns[county_code]"
                           dataType="i4"
                           name="county_code" />
-                        <externalMetadataColumn
-                          refId="Package\CSV TO STAGE\get new or modified data\Stage tblTempAqiDatas.Inputs[OLE DB Destination Input].ExternalColumns[&quot;date&quot;]"
-                          dataType="dbDate"
-                          name="&quot;date&quot;" />
                         <externalMetadataColumn
                           refId="Package\CSV TO STAGE\get new or modified data\Stage tblTempAqiDatas.Inputs[OLE DB Destination Input].ExternalColumns[category]"
                           dataType="wstr"
@@ -4072,10 +4330,6 @@ where [refTable].[created] = ? and [refTable].[last_updated] = ? and [refTable].
                           length="50"
                           name="defining_site" />
                         <externalMetadataColumn
-                          refId="Package\CSV TO STAGE\get new or modified data\Stage tblTempAqiDatas.Inputs[OLE DB Destination Input].ExternalColumns[number_of_site_reporting]"
-                          dataType="i4"
-                          name="number_of_site_reporting" />
-                        <externalMetadataColumn
                           refId="Package\CSV TO STAGE\get new or modified data\Stage tblTempAqiDatas.Inputs[OLE DB Destination Input].ExternalColumns[aqi]"
                           dataType="i4"
                           name="aqi" />
@@ -4087,6 +4341,14 @@ where [refTable].[created] = ? and [refTable].[last_updated] = ? and [refTable].
                           refId="Package\CSV TO STAGE\get new or modified data\Stage tblTempAqiDatas.Inputs[OLE DB Destination Input].ExternalColumns[last_updated]"
                           dataType="dbTimeStamp"
                           name="last_updated" />
+                        <externalMetadataColumn
+                          refId="Package\CSV TO STAGE\get new or modified data\Stage tblTempAqiDatas.Inputs[OLE DB Destination Input].ExternalColumns[date]"
+                          dataType="dbDate"
+                          name="date" />
+                        <externalMetadataColumn
+                          refId="Package\CSV TO STAGE\get new or modified data\Stage tblTempAqiDatas.Inputs[OLE DB Destination Input].ExternalColumns[number_of_sites_reporting]"
+                          dataType="i4"
+                          name="number_of_sites_reporting" />
                       </externalMetadataColumns>
                     </input>
                   </inputs>
@@ -4118,23 +4380,38 @@ where [refTable].[created] = ? and [refTable].[last_updated] = ? and [refTable].
               </components>
               <paths>
                 <path
+                  refId="Package\CSV TO STAGE\get new or modified data.Paths[Case 1]"
+                  endId="Package\CSV TO STAGE\get new or modified data\Combine stream.Inputs[Union All Input 4]"
+                  name="Case 1"
+                  startId="Package\CSV TO STAGE\get new or modified data\Conditional Split 1.Outputs[Case 1]" />
+                <path
+                  refId="Package\CSV TO STAGE\get new or modified data.Paths[Case 11]"
+                  endId="Package\CSV TO STAGE\get new or modified data\Combine stream.Inputs[Union All Input 1]"
+                  name="Case 1"
+                  startId="Package\CSV TO STAGE\get new or modified data\Conditional Split 1 1.Outputs[Case 1]" />
+                <path
+                  refId="Package\CSV TO STAGE\get new or modified data.Paths[Case 12]"
+                  endId="Package\CSV TO STAGE\get new or modified data\Combine stream.Inputs[Union All Input 2]"
+                  name="Case 1"
+                  startId="Package\CSV TO STAGE\get new or modified data\Conditional Split 1 2.Outputs[Case 1]" />
+                <path
                   refId="Package\CSV TO STAGE\get new or modified data.Paths[Data Conversion Output]"
                   endId="Package\CSV TO STAGE\get new or modified data\Sort and Remove Duplicates.Inputs[Sort Input]"
                   name="Data Conversion Output"
                   startId="Package\CSV TO STAGE\get new or modified data\convert date.Outputs[Data Conversion Output]" />
                 <path
                   refId="Package\CSV TO STAGE\get new or modified data.Paths[Flat File Source Output]"
-                  endId="Package\CSV TO STAGE\get new or modified data\Combine stream.Inputs[Union All Input 1]"
+                  endId="Package\CSV TO STAGE\get new or modified data\Conditional Split 1.Inputs[Conditional Split Input]"
                   name="Flat File Source Output"
                   startId="Package\CSV TO STAGE\get new or modified data\2021 source.Outputs[Flat File Source Output]" />
                 <path
                   refId="Package\CSV TO STAGE\get new or modified data.Paths[Flat File Source Output1]"
-                  endId="Package\CSV TO STAGE\get new or modified data\Combine stream.Inputs[Union All Input 2]"
+                  endId="Package\CSV TO STAGE\get new or modified data\Conditional Split 1 1.Inputs[Conditional Split Input]"
                   name="Flat File Source Output"
                   startId="Package\CSV TO STAGE\get new or modified data\2022 source.Outputs[Flat File Source Output]" />
                 <path
                   refId="Package\CSV TO STAGE\get new or modified data.Paths[Flat File Source Output2]"
-                  endId="Package\CSV TO STAGE\get new or modified data\Combine stream.Inputs[Union All Input 3]"
+                  endId="Package\CSV TO STAGE\get new or modified data\Conditional Split 1 2.Inputs[Conditional Split Input]"
                   name="Flat File Source Output"
                   startId="Package\CSV TO STAGE\get new or modified data\2023 source.Outputs[Flat File Source Output]" />
                 <path
@@ -4180,7 +4457,7 @@ where [refTable].[created] = ? and [refTable].[last_updated] = ? and [refTable].
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{5244FE6A-1413-4331-9CE4-8A9998F12A1C}"
-              SQLTask:SqlStatementSource="&#xA;declare @updated_records int &#xA;update a &#xA;set a.[AQI] = b.[AQI],&#xA;    a.[state_name] = b.[state_name],&#xA;    a.[county_name] = b.[county_name],&#xA;    a.[state_code] = b.[state_code],&#xA;    a.[date] = b.[&quot;date&quot;],&#xA;    a.[category] = b.[category],&#xA;    a.[defining_parameter] = b.[defining_parameter],&#xA;    a.[defining_site] = b.[defining_site],&#xA;    a.[number_of_sites_reporting] = b.[number_of_site_reporting],&#xA;    a.[created] = b.[created],&#xA;    a.[last_updated] = b.[last_updated]&#xA;from [STAGE].[tblAqiDatas] a inner join [dbo].[Stage tblTempAqiDatas] b &#xA;on a.[defining_site] = b.[defining_site] &#xA;    and a.[defining_parameter] = b.[defining_parameter]&#xA;    and a.[date] = b.[&quot;date&quot;]&#xA;set @updated_records = (select @@ROWCOUNT)&#xA;insert into tbl_audit_log&#xA;select 'Incremental Data Update.dtsx', '[STAGE].[tblAqiDatas]', 0, @updated_records, getdate()&#xA;&#xA;update [dbo].[tbl_config_table]&#xA;set [last_updated_value] = (select max ([last_updated]) from [STAGE].[tblAqiDatas])&#xA;where [table_name] = '[STAGE].[tblAqiDatas]' and (select count (*) from [STAGE].[tblAqiDatas]) &gt; 0" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              SQLTask:SqlStatementSource="&#xA;declare @updated_records int &#xA;update a &#xA;set a.[AQI] = b.[AQI],&#xA;    a.[state_name] = b.[state_name],&#xA;    a.[county_name] = b.[county_name],&#xA;    a.[state_code] = b.[state_code],&#xA;    a.[date] = b.[date],&#xA;    a.[category] = b.[category],&#xA;    a.[defining_parameter] = b.[defining_parameter],&#xA;    a.[defining_site] = b.[defining_site],&#xA;    a.[number_of_sites_reporting] = b.[number_of_sites_reporting],&#xA;    a.[created] = b.[created],&#xA;    a.[last_updated] = b.[last_updated]&#xA;from [STAGE].[tbl_aqi_datas] a inner join [STAGE].zzz_tbl_aqi_datas b &#xA;on a.[defining_site] = b.[defining_site] &#xA;    and a.[defining_parameter] = b.[defining_parameter]&#xA;    and a.[date] = b.[date]&#xA;where b.last_updated &gt; a.last_updated&#xA;set @updated_records = (select @@ROWCOUNT)&#xA;insert into [STAGE].tbl_audit_log&#xA;select 'Incremental Data Update.dtsx', '[STAGE].[tbl_aqi_datas]', ?, @updated_records, getdate()&#xA;&#xA;update [STAGE].[tbl_config_table]&#xA;set [last_updated_value] = (select max ([last_updated]) from [STAGE].[tbl_aqi_datas])&#xA;where [table_name] = '[STAGE].[tbl_aqi_datas]' and (select count (*) from [STAGE].[tbl_aqi_datas]) &gt; 0&#xA;&#xA;select * from [STAGE].tbl_audit_log;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ParameterBinding
                 SQLTask:ParameterName="0"
                 SQLTask:DtsVariableName="User::records_inserted"
@@ -4285,7 +4562,7 @@ where [refTable].[created] = ? and [refTable].[last_updated] = ? and [refTable].
           PanelSize="237.142857142858,268"
           Size="237.142857142858,310.857142857143"
           Id="Package\CSV TO STAGE"
-          TopLeft="104.333337734694,57.6818242534254" />
+          TopLeft="385.555565562329,103.863643813662" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -4295,115 +4572,59 @@ where [refTable].[created] = ? and [refTable].[last_updated] = ? and [refTable].
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="138.857142857143,42.2857142857143"
+          Size="139,42"
           Id="Package\CSV TO STAGE\get new or modified data\2023 source"
           TopLeft="475.999978721143,35.9999983906747" />
         <NodeLayout
-          Size="138.857142857143,42.2857142857143"
+          Size="139,42"
           Id="Package\CSV TO STAGE\get new or modified data\convert date"
-          TopLeft="250.999980643393,245.571424669453" />
+          TopLeft="250.14283778625,270.142853240882" />
         <NodeLayout
-          Size="114.857142857143,42.2857142857143"
+          Size="115,42"
           Id="Package\CSV TO STAGE\get new or modified data\Lookup"
           TopLeft="271,411" />
         <NodeLayout
-          Size="138.857142857143,42.2857142857143"
+          Size="139,42"
           Id="Package\CSV TO STAGE\get new or modified data\2022 source"
-          TopLeft="256.923065437721,40.7692289467042" />
+          TopLeft="260.923065437721,31.7692289467042" />
         <NodeLayout
-          Size="133.142857142858,42.2857142857143"
+          Size="133,42"
           Id="Package\CSV TO STAGE\get new or modified data\Row Count"
           TopLeft="131,493" />
         <NodeLayout
-          Size="194.857142857143,42.2857142857143"
+          Size="195,42"
           Id="Package\CSV TO STAGE\get new or modified data\Stage tblTempAqiDatas"
           TopLeft="391,498" />
         <NodeLayout
-          Size="160,42.2857142857143"
+          Size="160,42"
           Id="Package\CSV TO STAGE\get new or modified data\Combine stream"
-          TopLeft="245,160" />
+          TopLeft="246.571428571429,199.428571428571" />
         <NodeLayout
-          Size="138.857142857143,42.2857142857143"
+          Size="139,42"
           Id="Package\CSV TO STAGE\get new or modified data\2021 source"
           TopLeft="39.3846136239859,40.6153827997356" />
         <NodeLayout
-          Size="168,42.2857142857143"
+          Size="168,42"
           Id="Package\CSV TO STAGE\get new or modified data\Stage tblAquiData"
           TopLeft="114.379111742663,574.670318777418" />
         <NodeLayout
-          Size="218.857142857143,42.2857142857143"
+          Size="219,42"
           Id="Package\CSV TO STAGE\get new or modified data\Sort and Remove Duplicates"
-          TopLeft="216,320" />
-        <EdgeLayout
-          Id="Package\CSV TO STAGE\get new or modified data.Paths[Flat File Source Output]"
-          TopLeft="108.884613623986,82.6153827997356">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="178.115386376014,77.3846172002644"
-              Start="0,0"
-              End="178.115386376014,69.8846172002644">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,46.7440112788619" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,46.7440112788619"
-                    Point2="0,50.7440112788619"
-                    Point3="4,50.7440112788619" />
-                  <mssgle:LineSegment
-                    End="174.115386376014,50.7440112788619" />
-                  <mssgle:CubicBezierSegment
-                    Point1="174.115386376014,50.7440112788619"
-                    Point2="178.115386376014,50.7440112788619"
-                    Point3="178.115386376014,54.7440112788619" />
-                  <mssgle:LineSegment
-                    End="178.115386376014,69.8846172002644" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\CSV TO STAGE\get new or modified data.Paths[Data Conversion Output]"
-          TopLeft="322.999990321696,287.571424669453">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,32.428575330547"
-              Start="0,0"
-              End="0,24.928575330547">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,24.928575330547" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          TopLeft="213.142857142857,338.571428571428" />
         <EdgeLayout
           Id="Package\CSV TO STAGE\get new or modified data.Paths[Union All Output 1]"
-          TopLeft="322.749990321696,202">
+          TopLeft="323.107133178839,241.428571428571">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,43.571424669453"
+              EndConnector="0,28.7142818123101"
               Start="0,0"
-              End="0,36.071424669453">
+              End="0,21.2142818123101">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,36.071424669453" />
+                    End="0,21.2142818123101" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4414,18 +4635,18 @@ where [refTable].[created] = ? and [refTable].[last_updated] = ? and [refTable].
         </EdgeLayout>
         <EdgeLayout
           Id="Package\CSV TO STAGE\get new or modified data.Paths[Sort Output]"
-          TopLeft="327,362">
+          TopLeft="325.571428571429,380.571428571428">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,49"
+              EndConnector="0,30.4285714285715"
               Start="0,0"
-              End="0,41.5">
+              End="0,22.9285714285715">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,41.5" />
+                    End="0,22.9285714285715" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4524,36 +4745,102 @@ where [refTable].[created] = ? and [refTable].[last_updated] = ? and [refTable].
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="22.8919466145833,23.3704974271012,96.3827734375,11.609375"
+              BoundingBox="22.8919466145835,23.3704974271012,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\CSV TO STAGE\get new or modified data.Paths[Flat File Source Output2]"
-          TopLeft="545.499978721143,77.9999983906747">
+          Id="Package\CSV TO STAGE\get new or modified data.Paths[Data Conversion Output]"
+          TopLeft="321.142847464554,312.142853240882">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-182.499978721143,82.0000016093253"
+              EndConnector="0,26.4285753305469"
               Start="0,0"
-              End="-182.499978721143,74.5000016093253">
+              End="0,18.9285753305469">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,49.770492858574" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,49.770492858574"
-                    Point2="0,53.770492858574"
-                    Point3="-4,53.770492858574" />
+                    End="0,18.9285753305469" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="168,42"
+          Id="Package\CSV TO STAGE\get new or modified data\Conditional Split 1"
+          TopLeft="22,123" />
+        <EdgeLayout
+          Id="Package\CSV TO STAGE\get new or modified data.Paths[Flat File Source Output]"
+          TopLeft="107.442306811993,82.6153827997356">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,40.3846172002644"
+              Start="0,0"
+              End="0,32.8846172002644">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
                   <mssgle:LineSegment
-                    End="-178.499978721143,53.770492858574" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-178.499978721143,53.770492858574"
-                    Point2="-182.499978721143,53.770492858574"
-                    Point3="-182.499978721143,57.770492858574" />
+                    End="0,32.8846172002644" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="168,42"
+          Id="Package\CSV TO STAGE\get new or modified data\Conditional Split 1 1"
+          TopLeft="249,112" />
+        <EdgeLayout
+          Id="Package\CSV TO STAGE\get new or modified data.Paths[Flat File Source Output1]"
+          TopLeft="331.71153271886,73.7692289467042">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,38.2307710532958"
+              Start="0,0"
+              End="0,30.7307710532958">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
                   <mssgle:LineSegment
-                    End="-182.499978721143,74.5000016093253" />
+                    End="0,30.7307710532958" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="168,42"
+          Id="Package\CSV TO STAGE\get new or modified data\Conditional Split 1 2"
+          TopLeft="467.384613623986,115.670318777418" />
+        <EdgeLayout
+          Id="Package\CSV TO STAGE\get new or modified data.Paths[Flat File Source Output2]"
+          TopLeft="548.442296172564,77.9999983906747">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37.6703203867432"
+              Start="0,0"
+              End="0,30.1703203867432">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.1703203867432" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4563,25 +4850,99 @@ where [refTable].[created] = ? and [refTable].[last_updated] = ? and [refTable].
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\CSV TO STAGE\get new or modified data.Paths[Flat File Source Output1]"
-          TopLeft="325.71153271886,82.7692289467042">
+          Id="Package\CSV TO STAGE\get new or modified data.Paths[Case 1]"
+          TopLeft="106,165">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,77.2307710532958"
+              EndConnector="182.571428571429,34.4285714285714"
               Start="0,0"
-              End="0,69.7307710532958">
+              End="182.571428571429,26.9285714285714">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,69.7307710532958" />
+                    End="0,18.576112412178" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.576112412178"
+                    Point2="0,22.576112412178"
+                    Point3="4,22.576112412178" />
+                  <mssgle:LineSegment
+                    End="178.571428571429,22.576112412178" />
+                  <mssgle:CubicBezierSegment
+                    Point1="178.571428571429,22.576112412178"
+                    Point2="182.571428571429,22.576112412178"
+                    Point3="182.571428571429,26.576112412178" />
+                  <mssgle:LineSegment
+                    End="182.571428571429,26.9285714285714" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="76.0676283482143,27.576112412178,30.436171875,9.5537109375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\CSV TO STAGE\get new or modified data.Paths[Case 11]"
+          TopLeft="329.785714285714,154">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,45.4285714285714"
+              Start="0,0"
+              End="0,37.9285714285714">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.9285714285714" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-15.2180859375,14.1874302455357,30.436171875,9.5537109375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\CSV TO STAGE\get new or modified data.Paths[Case 12]"
+          TopLeft="551.384613623986,157.670318777418">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-186.813185052557,41.7582526511535"
+              Start="0,0"
+              End="-186.813185052557,34.2582526511535">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.3824607548547" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23.3824607548547"
+                    Point2="0,27.3824607548547"
+                    Point3="-4,27.3824607548547" />
+                  <mssgle:LineSegment
+                    End="-182.813185052557,27.3824607548547" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-182.813185052557,27.3824607548547"
+                    Point2="-186.813185052557,27.3824607548547"
+                    Point3="-186.813185052557,31.3824607548547" />
+                  <mssgle:LineSegment
+                    End="-186.813185052557,34.2582526511535" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-108.624678463779,32.3824607548547,30.436171875,9.5537109375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -4598,7 +4959,7 @@ where [refTable].[created] = ? and [refTable].[last_updated] = ? and [refTable].
       <Property>
         <Name>UsedTableName</Name>
         <Value
-          type="q3:string">[STAGE].[tblAqiDatas]</Value>
+          type="q3:string">[STAGE].[tbl_aqi_datas]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
