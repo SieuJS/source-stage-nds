@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="8"
-  DTS:VersionGUID="{E6D8FDC7-2EBC-4C65-B77D-02EC05D67EB1}">
+  DTS:VersionBuild="15"
+  DTS:VersionGUID="{351EEAE0-1EA1-4989-A055-F4DD911B17BC}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -25,16 +25,26 @@
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=localhost;User ID=sa;Initial Catalog=AQI WAREHOUSE;Provider=SQLNCLI11.1;Application Name=SSIS-Package1-{38405752-1E45-48C2-A3E5-6002F2E35C01}localhost.AQI WAREHOUSE.sa;Auto Translate=False;">
+          DTS:ConnectionString="Data Source=localhost;User ID=sa;Initial Catalog=AQI_WAREHOUSE;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-Package1-{38405752-1E45-48C2-A3E5-6002F2E35C01}localhost.AQI WAREHOUSE.sa;">
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAB/5FVsbE70qCpweJOwVhiQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACynP40pS7zwOKbDmaC9pS6N4L3L2mNxFdScrAy2D+m5wAAAAAOgAAAAAIAACAAAAB5vSx7jfF2doA7ZPx+gI4t4JXCcynj2f58wQxKlf6fTyAAAAB4qg5M8NvLf7CWjPT8/7NWe+Nz1ZYO0bW0VQtM524BrEAAAAADGMnjR3VvowyT5+7GZf7kNee6fE7p87CMAj3b1xiqeWoWrcsKf9xDnZ/XPvn0W797vmnjLNGnpdbsx2A8ORH7</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAB/5FVsbE70qCpweJOwVhiQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABSVK8NLPvfDTIHCFYaYSh87nf+uZEDW4SBkZEyAKebhgAAAAAOgAAAAAIAACAAAAA923yqPRW8F1vjsCx8KcukZmQx9eeC0XEJG09KCBk0zSAAAABsdmUFz0zzqGwU6Ys7Wanifj/kk/6FNcm2Xj8dp2QFukAAAAAId55eBmOpyiyASxE7+E0mFrH2TmOVG9ddBlqfSf7079qTfWHccpwAyBH5wJ4VakKrrPuA1dQkL59l64fstbfL</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
-  <DTS:Variables />
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8872B52F-6F15-4198-8322-02F549262665}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="last_updated_dds">
+      <DTS:VariableValue
+        DTS:DataType="7">12/2/2024 7:56:27 PM</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
   <DTS:Executables>
     <DTS:Executable
       DTS:refId="Package\Sequence Container"
@@ -58,7 +68,239 @@
           <DTS:Variables />
           <DTS:ObjectData>
             <pipeline
-              version="1" />
+              version="1">
+              <components>
+                <component
+                  refId="Package\Sequence Container\Data Flow Task\OLE DB Source"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE DB Source"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [nds].[tbl_states] where last_updated &gt; ?</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping">"0:Input",{8872B52F-6F15-4198-8322-02F549262665};</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[localhost.AQI WAREHOUSE.sa]"
+                      connectionManagerRefId="Package.ConnectionManagers[localhost.AQI WAREHOUSE.sa]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[state_id]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[id]"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[state_id]"
+                          name="state_id"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[state_alpha_code]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[state_alpha_code]"
+                          length="2"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[state_alpha_code]"
+                          name="state_alpha_code"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[state_number_code]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[state_number_code]"
+                          length="2"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[state_number_code]"
+                          name="state_number_code"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[state_name]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[state_name]"
+                          length="100"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[state_name]"
+                          name="state_name"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[source_id]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[source_id]"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[source_id]"
+                          name="source_id"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[created]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[created]"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[created]"
+                          name="created"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[last_updated]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[last_updated]"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[last_updated]"
+                          name="last_updated"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[id]"
+                          dataType="i4"
+                          name="id" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[state_alpha_code]"
+                          codePage="1252"
+                          dataType="str"
+                          length="2"
+                          name="state_alpha_code" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[state_number_code]"
+                          codePage="1252"
+                          dataType="str"
+                          length="2"
+                          name="state_number_code" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[state_name]"
+                          dataType="wstr"
+                          length="100"
+                          name="state_name" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[source_id]"
+                          dataType="i4"
+                          name="source_id" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[created]"
+                          dataType="dbTimeStamp"
+                          name="created" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[last_updated]"
+                          dataType="dbTimeStamp"
+                          name="last_updated" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[id]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[id]"
+                          name="id" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[state_alpha_code]"
+                          codePage="1252"
+                          dataType="str"
+                          length="2"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[state_alpha_code]"
+                          name="state_alpha_code" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[state_number_code]"
+                          codePage="1252"
+                          dataType="str"
+                          length="2"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[state_number_code]"
+                          name="state_number_code" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[state_name]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[state_name]"
+                          name="state_name" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[source_id]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[source_id]"
+                          name="source_id" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[created]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[created]"
+                          name="created" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[last_updated]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[last_updated]"
+                          name="last_updated" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+            </pipeline>
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
@@ -74,7 +316,13 @@
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
-              SQLTask:Connection="{38405752-1E45-48C2-A3E5-6002F2E35C01}" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              SQLTask:Connection="{38405752-1E45-48C2-A3E5-6002F2E35C01}"
+              SQLTask:SqlStatementSource="select MAX(last_updated_value) from [meta].[tbl_config_table] where table_name = '[dim].*';"
+              SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="0"
+                SQLTask:DtsVariableName="User::last_updated_dds" />
+            </SQLTask:SqlTaskData>
           </DTS:ObjectData>
         </DTS:Executable>
       </DTS:Executables>
@@ -116,25 +364,25 @@
         <NodeLayout
           Size="132,42.2857142857143"
           Id="Package\Sequence Container\Execute SQL Task"
-          TopLeft="41.4126967634528,25.0064879599983" />
+          TopLeft="35.3015857636405,17.3246702048336" />
         <NodeLayout
           Size="130.285714285715,42.2857142857143"
           Id="Package\Sequence Container\Data Flow Task"
-          TopLeft="39.1904745817028,93.551938698391" />
+          TopLeft="36.9682523999528,98.8701202211974" />
         <EdgeLayout
           Id="Package\Sequence Container.PrecedenceConstraints[Constraint]"
-          TopLeft="105.873014244006,67.2922022457126">
+          TopLeft="101.706347653225,59.6103844905479">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,26.2597364526784"
+              EndConnector="0,39.2597357306494"
               Start="0,0"
-              End="0,18.7597364526784">
+              End="0,31.7597357306494">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,18.7597364526784" />
+                    End="0,31.7597357306494" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -160,5 +408,25 @@
       </GraphLayout>
     </LayoutInfo>
   </Package>
+  <TaskHost
+    design-time-name="Package\Sequence Container\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="156.571428571429,42.2857142857143"
+          Id="Package\Sequence Container\Data Flow Task\OLE DB Source"
+          TopLeft="100.555553724185,24.2272713816733" />
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\Data Flow Task\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>

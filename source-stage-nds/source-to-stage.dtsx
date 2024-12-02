@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="source-to-stage"
   DTS:PackageType="5"
-  DTS:VersionBuild="127"
-  DTS:VersionGUID="{4B002336-BDC7-4D9F-A3B3-1D4C39FAC7FC}">
+  DTS:VersionBuild="128"
+  DTS:VersionGUID="{0C7CFBA0-A86E-4141-82CF-D2D278B7834E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -29,7 +29,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAB/5FVsbE70qCpweJOwVhiQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAm6yIS/Xuj8DK7Z25X1Ce9LS2kadpM4s8Kkzhu3Cl2EAAAAAAOgAAAAAIAACAAAABOiGdeiKb5absLSRKlT3EKbXWRnvjDO9MDHg/azURywCAAAACvN7vzzQAJEaOtI8DcYssPe1lqiLjfqVcRYsTwsTFGLUAAAABBHCmTmeftg/XUCMOg8M0ZNJC2s3lsMeMCl3lPgb0aIkFJwVseGYaI5veagK8SrGvSwvP8B1wTGED+O47+mMUk</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAB/5FVsbE70qCpweJOwVhiQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADtclyz5v0Ox+WiYWooeNnOtS/eqmWswGJJj/kBHuLTHwAAAAAOgAAAAAIAACAAAAD9C6UMYyOsYfrq5W9BvUHs6/Go/stndOf/HZbal1C03iAAAACVfyUEE6bw7Q49tK1DrJ8knxK9AcX/N+nVGGYtqS5nFEAAAAANLUB3sWLcLQg+vPZn6VdPzkZftov3DyXOXUSlW6QzjoralT9Mg3mYi//Bh+tEWNUbaAzoITgD515sfORCuKrz</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -12733,6 +12733,28 @@ where [refTable].[county_fips_code] = ?</property>
                               cachedSortKeyPosition="1"
                               externalMetadataColumnId="Package\stage to nds\Sequence Container 2\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[county_fips_code]"
                               lineageId="Package\stage to nds\Sequence Container 2\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[fips]" />
+                            <inputColumn
+                              refId="Package\stage to nds\Sequence Container 2\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[lat]"
+                              cachedDataType="numeric"
+                              cachedName="lat"
+                              cachedPrecision="9"
+                              cachedScale="6"
+                              externalMetadataColumnId="Package\stage to nds\Sequence Container 2\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[lat]"
+                              lineageId="Package\stage to nds\Sequence Container 2\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[lat]" />
+                            <inputColumn
+                              refId="Package\stage to nds\Sequence Container 2\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[lng]"
+                              cachedDataType="numeric"
+                              cachedName="lng"
+                              cachedPrecision="9"
+                              cachedScale="6"
+                              externalMetadataColumnId="Package\stage to nds\Sequence Container 2\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[lng]"
+                              lineageId="Package\stage to nds\Sequence Container 2\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[lng]" />
+                            <inputColumn
+                              refId="Package\stage to nds\Sequence Container 2\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[population]"
+                              cachedDataType="i8"
+                              cachedName="population"
+                              externalMetadataColumnId="Package\stage to nds\Sequence Container 2\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[population]"
+                              lineageId="Package\stage to nds\Sequence Container 2\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[population]" />
                           </inputColumns>
                           <externalMetadataColumns
                             isUsed="True">
@@ -12773,6 +12795,22 @@ where [refTable].[county_fips_code] = ?</property>
                               refId="Package\stage to nds\Sequence Container 2\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[last_updated]"
                               dataType="dbTimeStamp"
                               name="last_updated" />
+                            <externalMetadataColumn
+                              refId="Package\stage to nds\Sequence Container 2\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[lng]"
+                              dataType="numeric"
+                              name="lng"
+                              precision="9"
+                              scale="6" />
+                            <externalMetadataColumn
+                              refId="Package\stage to nds\Sequence Container 2\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[lat]"
+                              dataType="numeric"
+                              name="lat"
+                              precision="9"
+                              scale="6" />
+                            <externalMetadataColumn
+                              refId="Package\stage to nds\Sequence Container 2\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[population]"
+                              dataType="i4"
+                              name="population" />
                           </externalMetadataColumns>
                         </input>
                       </inputs>
@@ -12906,6 +12944,28 @@ where [refTable].[county_fips_code] = ?</property>
                               cachedName="state_id"
                               externalMetadataColumnId="Package\stage to nds\Sequence Container 2\Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[state_id]"
                               lineageId="Package\stage to nds\Sequence Container 2\Data Flow Task\Lookup.Outputs[Lookup Match Output].Columns[state_id]" />
+                            <inputColumn
+                              refId="Package\stage to nds\Sequence Container 2\Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[lng]"
+                              cachedDataType="numeric"
+                              cachedName="lng"
+                              cachedPrecision="9"
+                              cachedScale="6"
+                              externalMetadataColumnId="Package\stage to nds\Sequence Container 2\Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[lng]"
+                              lineageId="Package\stage to nds\Sequence Container 2\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[lng]" />
+                            <inputColumn
+                              refId="Package\stage to nds\Sequence Container 2\Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[lat]"
+                              cachedDataType="numeric"
+                              cachedName="lat"
+                              cachedPrecision="9"
+                              cachedScale="6"
+                              externalMetadataColumnId="Package\stage to nds\Sequence Container 2\Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[lat]"
+                              lineageId="Package\stage to nds\Sequence Container 2\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[lat]" />
+                            <inputColumn
+                              refId="Package\stage to nds\Sequence Container 2\Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[population]"
+                              cachedDataType="i8"
+                              cachedName="population"
+                              externalMetadataColumnId="Package\stage to nds\Sequence Container 2\Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[population]"
+                              lineageId="Package\stage to nds\Sequence Container 2\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[population]" />
                           </inputColumns>
                           <externalMetadataColumns
                             isUsed="True">
@@ -12936,6 +12996,28 @@ where [refTable].[county_fips_code] = ?</property>
                               refId="Package\stage to nds\Sequence Container 2\Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[last_updated]"
                               dataType="dbTimeStamp"
                               name="last_updated" />
+                            <externalMetadataColumn
+                              refId="Package\stage to nds\Sequence Container 2\Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[county_fips_code]"
+                              codePage="1252"
+                              dataType="str"
+                              length="5"
+                              name="county_fips_code" />
+                            <externalMetadataColumn
+                              refId="Package\stage to nds\Sequence Container 2\Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[lng]"
+                              dataType="numeric"
+                              name="lng"
+                              precision="9"
+                              scale="6" />
+                            <externalMetadataColumn
+                              refId="Package\stage to nds\Sequence Container 2\Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[lat]"
+                              dataType="numeric"
+                              name="lat"
+                              precision="9"
+                              scale="6" />
+                            <externalMetadataColumn
+                              refId="Package\stage to nds\Sequence Container 2\Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[population]"
+                              dataType="i4"
+                              name="population" />
                           </externalMetadataColumns>
                         </input>
                       </inputs>
@@ -14694,7 +14776,7 @@ where [refTable].[county_fips_code] = ?</property>
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
                   SQLTask:Connection="{60635141-6DFF-4626-9BE6-2059FBC06534}"
-                  SQLTask:SqlStatementSource="declare @updated_records int &#xA;update a&#xA;set &#xA;    a.county_name = b.county_name,&#xA;    a.source_id = b.source_id,&#xA;    a.last_updated = GETDATE()&#xA;from [nds].[tbl_counties] a inner join [nds].[zzz_tbl_counties] b&#xA;on   a.county_fips_code = b.county_fips_code &#xA;set @updated_records = (select @@ROWCOUNT)&#xA;insert into [meta].tbl_audit_log&#xA;select 'stage-to-source.dtsx', '[nds].[tbl_counties]', ?, @updated_records, getdate()&#xA;&#xA;update [meta].[tbl_config_table]&#xA;set [last_updated_value] = (select max ([last_updated]) from [nds].[tbl_counties])&#xA;where [table_name] = '[nds].[tbl_counties]' and (select count (*) from [nds].[tbl_counties]) &gt; 0;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  SQLTask:SqlStatementSource="declare @updated_records int &#xA;update a&#xA;set &#xA;    a.county_name = b.county_name,&#xA;    a.source_id = b.source_id,&#xA;    a.last_updated = GETDATE(),&#xA;    a.lng = b.lng,&#xA;    a.lat = b.lat,&#xA;    a.population = b.population&#xA;&#x9;&#xA;from [nds].[tbl_counties] a inner join [nds].[zzz_tbl_counties] b&#xA;on   a.county_fips_code = b.county_fips_code &#xA;set @updated_records = (select @@ROWCOUNT)&#xA;insert into [meta].tbl_audit_log&#xA;select 'stage-to-source.dtsx', '[nds].[tbl_counties]', ?, @updated_records, getdate()&#xA;&#xA;update [meta].[tbl_config_table]&#xA;set [last_updated_value] = (select max ([last_updated]) from [nds].[tbl_counties])&#xA;where [table_name] = '[nds].[tbl_counties]' and (select count (*) from [nds].[tbl_counties]) &gt; 0;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
                   <SQLTask:ParameterBinding
                     SQLTask:ParameterName="0"
                     SQLTask:DtsVariableName="User::records_inserted_nds_counties"
