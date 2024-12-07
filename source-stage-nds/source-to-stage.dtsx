@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="source-to-stage"
   DTS:PackageType="5"
-  DTS:VersionBuild="128"
-  DTS:VersionGUID="{0C7CFBA0-A86E-4141-82CF-D2D278B7834E}">
+  DTS:VersionBuild="145"
+  DTS:VersionGUID="{9456EE20-C0C9-46D1-BF34-24446A106CA2}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -29,7 +29,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAB/5FVsbE70qCpweJOwVhiQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADtclyz5v0Ox+WiYWooeNnOtS/eqmWswGJJj/kBHuLTHwAAAAAOgAAAAAIAACAAAAD9C6UMYyOsYfrq5W9BvUHs6/Go/stndOf/HZbal1C03iAAAACVfyUEE6bw7Q49tK1DrJ8knxK9AcX/N+nVGGYtqS5nFEAAAAANLUB3sWLcLQg+vPZn6VdPzkZftov3DyXOXUSlW6QzjoralT9Mg3mYi//Bh+tEWNUbaAzoITgD515sfORCuKrz</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAB/5FVsbE70qCpweJOwVhiQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAA4cbP6NVGZo6/0lZHpN5LXh8W+1PFNOoJ3OjhQifIz5QAAAAAOgAAAAAIAACAAAABSDaskt6rUtHBdK1QaLpnEeHJ5YbPjHsgT+5i6q+5UTyAAAABQn1l0a1PCAlphrbqeWvAuk2raO5Uwc22HDbuVXB1/vkAAAAAH3YZGVI/5AgWcHQhMu93u9kGYgetq1ozFUKpUWD5J/aTVQjVFZQmJybZA3yiKF1R1SFPZp96ydenWSdYuEEHa</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -621,6 +621,15 @@
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
   <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{6CC4A1B7-303C-46A9-94C6-DE1C48AE47EE}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="CET">
+      <DTS:VariableValue
+        DTS:DataType="7">12/3/2024 9:06:40 AM</DTS:VariableValue>
+    </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
       DTS:DTSID="{3DE10860-608B-4FCD-818B-E48742EF9CF1}"
@@ -8260,6 +8269,23 @@ where [refTable].[state_name] = ? and [refTable].[county_name] = ? and [refTable
       <DTS:Variables />
       <DTS:Executables>
         <DTS:Executable
+          DTS:refId="Package\stage to nds\Execute SQL Task"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{28D680B9-0E18-4B38-AEB3-0721D111F86E}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Execute SQL Task"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{60635141-6DFF-4626-9BE6-2059FBC06534}"
+              SQLTask:SqlStatementSource="update [meta].[tbl_config_table] set last_updated_value = GETDATE() where table_name = '[nds].*'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
           DTS:refId="Package\stage to nds\Sequence Container"
           DTS:CreationName="STOCK:SEQUENCE"
           DTS:Description="Sequence Container"
@@ -11128,7 +11154,7 @@ where [refTable].[state_number_code] = ? and [refTable].[state_name] = ?</proper
                       name="Derived Column Output"
                       startId="Package\stage to nds\Sequence Container\Data Flow Task\Derived Column 1.Outputs[Derived Column Output]" />
                     <path
-                      refId="Package\stage to nds\Sequence Container\Data Flow Task.Paths[Derived Column Output3]"
+                      refId="Package\stage to nds\Sequence Container\Data Flow Task.Paths[Derived Column Output1]"
                       endId="Package\stage to nds\Sequence Container\Data Flow Task\Union All.Inputs[Union All Input 3]"
                       name="Derived Column Output"
                       startId="Package\stage to nds\Sequence Container\Data Flow Task\label id 2.Outputs[Derived Column Output]" />
@@ -11138,7 +11164,7 @@ where [refTable].[state_number_code] = ? and [refTable].[state_name] = ?</proper
                       name="Derived Column Output"
                       startId="Package\stage to nds\Sequence Container\Data Flow Task\label id 1.Outputs[Derived Column Output]" />
                     <path
-                      refId="Package\stage to nds\Sequence Container\Data Flow Task.Paths[Derived Column Output1]"
+                      refId="Package\stage to nds\Sequence Container\Data Flow Task.Paths[Derived Column Output3]"
                       endId="Package\stage to nds\Sequence Container\Data Flow Task\Union All.Inputs[Union All Input 1]"
                       name="Derived Column Output"
                       startId="Package\stage to nds\Sequence Container\Data Flow Task\label id.Outputs[Derived Column Output]" />
@@ -11163,12 +11189,12 @@ where [refTable].[state_number_code] = ? and [refTable].[state_name] = ?</proper
                       name="Merge Join Output"
                       startId="Package\stage to nds\Sequence Container\Data Flow Task\Merge Join.Outputs[Merge Join Output]" />
                     <path
-                      refId="Package\stage to nds\Sequence Container\Data Flow Task.Paths[OLE DB Source Output1]"
+                      refId="Package\stage to nds\Sequence Container\Data Flow Task.Paths[OLE DB Source Output]"
                       endId="Package\stage to nds\Sequence Container\Data Flow Task\label id 1.Inputs[Derived Column Input]"
                       name="OLE DB Source Output"
                       startId="Package\stage to nds\Sequence Container\Data Flow Task\stage 2022.Outputs[OLE DB Source Output]" />
                     <path
-                      refId="Package\stage to nds\Sequence Container\Data Flow Task.Paths[OLE DB Source Output]"
+                      refId="Package\stage to nds\Sequence Container\Data Flow Task.Paths[OLE DB Source Output1]"
                       endId="Package\stage to nds\Sequence Container\Data Flow Task\label id.Inputs[Derived Column Input]"
                       name="OLE DB Source Output"
                       startId="Package\stage to nds\Sequence Container\Data Flow Task\stage 2021.Outputs[OLE DB Source Output]" />
@@ -18287,6 +18313,14 @@ where [refTable].[source_id] = ? and [refTable].[defining_parameter] = ? and [re
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 2"
           DTS:To="Package\stage to nds\Sequence Container 3" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\stage to nds.PrecedenceConstraints[Constraint 3]"
+          DTS:CreationName=""
+          DTS:DTSID="{968C90C2-112C-426D-8F51-6A7BF93F997E}"
+          DTS:From="Package\stage to nds\Sequence Container 3"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 3"
+          DTS:To="Package\stage to nds\Execute SQL Task" />
       </DTS:PrecedenceConstraints>
     </DTS:Executable>
   </DTS:Executables>
@@ -18375,28 +18409,6 @@ where [refTable].[source_id] = ? and [refTable].[defining_parameter] = ? and [re
           Size="190.285714285715,316.571428571429"
           Id="Package\source to stage\source to stage 2021"
           TopLeft="43.3518371375254,41.4502091017745" />
-        <EdgeLayout
-          Id="Package\source to stage.PrecedenceConstraints[Constraint]"
-          TopLeft="233.63755142324,199.843066992447">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="44.9761900707445,0"
-              Start="0,0"
-              End="37.4761900707445,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="37.4761900707445,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <NodeLayout
           Size="130.857142857143,42.2857142857143"
           Id="Package\source to stage\source to stage 2022\Data Flow Task"
@@ -18460,40 +18472,18 @@ where [refTable].[source_id] = ? and [refTable].[defining_parameter] = ? and [re
           Size="229.714285714286,308"
           Id="Package\source to stage\source to stage 2022"
           TopLeft="278.613741493984,45.9502105974059" />
-        <EdgeLayout
-          Id="Package\source to stage.PrecedenceConstraints[Constraint 1]"
-          TopLeft="396.010567306372,353.950210597406">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,43.9658877969151"
-              Start="0,0"
-              End="0,36.4658877969151">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,36.4658877969151" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <NodeLayout
           Size="154.857142857143,42.2857142857143"
           Id="Package\source to stage\source to stage 2023\Data Flow Task"
           TopLeft="24.428569516256,89.2857063433958" />
         <NodeLayout
-          Size="162.857142857143,42.2857142857143"
-          Id="Package\source to stage\source to stage 2023\truncate and get last updated 2023"
-          TopLeft="16.0952363346937,19.5584374888238" />
-        <NodeLayout
           Size="170.857142857143,42.2857142857143"
           Id="Package\source to stage\source to stage 2023\Execute SQL Task 1"
           TopLeft="16.0952363346937,157.240248023699" />
+        <NodeLayout
+          Size="162.857142857143,42.2857142857143"
+          Id="Package\source to stage\source to stage 2023\truncate and get last updated 2023"
+          TopLeft="16.0952363346937,19.5584374888238" />
         <EdgeLayout
           Id="Package\source to stage\source to stage 2023.PrecedenceConstraints[Constraint]"
           TopLeft="99.6904743540463,61.8441517745381">
@@ -18545,35 +18535,20 @@ where [refTable].[source_id] = ? and [refTable].[defining_parameter] = ? and [re
           Size="209.714285714286,293.714285714286"
           Id="Package\source to stage\source to stage 2023"
           TopLeft="293.693107404475,397.916098394321" />
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="553.142857142858,786.857142857143"
-          Size="553.142857142858,829.714285714286"
-          Id="Package\source to stage"
-          TopLeft="76.9444430430909,402.616861826406" />
-        <NodeLayout
-          Size="169.714285714286,42.2857142857143"
-          Id="Package\stage to nds\Sequence Container\Execute SQL Task"
-          TopLeft="29.2345678787499,28.1349115293331" />
-        <NodeLayout
-          Size="131.428571428572,42.2857142857143"
-          Id="Package\stage to nds\Sequence Container\Data Flow Task"
-          TopLeft="53.400791235104,98.1487995658269" />
         <EdgeLayout
-          Id="Package\stage to nds\Sequence Container.PrecedenceConstraints[Constraint 2]"
-          TopLeft="116.603393842641,70.4206258150474">
+          Id="Package\source to stage.PrecedenceConstraints[Constraint]"
+          TopLeft="233.63755142324,199.843066992447">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,27.7281737507795"
+              EndConnector="44.9761900707445,0"
               Start="0,0"
-              End="0,20.2281737507795">
+              End="37.4761900707445,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,20.2281737507795" />
+                    End="37.4761900707445,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -18582,6 +18557,43 @@ where [refTable].[source_id] = ? and [refTable].[defining_parameter] = ? and [re
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\source to stage.PrecedenceConstraints[Constraint 1]"
+          TopLeft="396.010567306372,353.950210597406">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,43.9658877969151"
+              Start="0,0"
+              End="0,36.4658877969151">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.4658877969151" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="553.142857142858,786.857142857143"
+          Size="553.142857142858,829.714285714286"
+          Id="Package\source to stage"
+          TopLeft="79.7222207702785,377.010802642524" />
+        <NodeLayout
+          Size="131.428571428572,42.2857142857143"
+          Id="Package\stage to nds\Sequence Container\Data Flow Task"
+          TopLeft="53.400791235104,98.1487995658269" />
+        <NodeLayout
+          Size="169.714285714286,42.2857142857143"
+          Id="Package\stage to nds\Sequence Container\Execute SQL Task"
+          TopLeft="29.2345678787499,28.1349115293331" />
         <NodeLayout
           Size="178.857142857143,42.2857142857143"
           Id="Package\stage to nds\Sequence Container\Execute SQL Task 1"
@@ -18608,13 +18620,35 @@ where [refTable].[source_id] = ? and [refTable].[defining_parameter] = ? and [re
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\stage to nds\Sequence Container.PrecedenceConstraints[Constraint 2]"
+          TopLeft="116.603393842641,70.4206258150474">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,27.7281737507795"
+              Start="0,0"
+              End="0,20.2281737507795">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.2281737507795" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
           PanelSize="257.714285714286,260"
           Size="257.714285714286,302.857142857143"
           Id="Package\stage to nds\Sequence Container"
-          TopLeft="308.529961716265,54.7424215074663" />
+          TopLeft="380.752182623138,55.7272699376157" />
         <NodeLayout
           Size="141.142857142858,42.2857142857143"
           Id="Package\stage to nds\Sequence Container 1\get source id"
@@ -18674,32 +18708,10 @@ where [refTable].[source_id] = ? and [refTable].[defining_parameter] = ? and [re
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="205.142857142858,260.571428571429"
+          PanelSize="205.142857142858,261.142857142858"
           Size="205.142857142858,304"
           Id="Package\stage to nds\Sequence Container 1"
-          TopLeft="25.8968250253473,47.1144095626583" />
-        <EdgeLayout
-          Id="Package\stage to nds.PrecedenceConstraints[Constraint]"
-          TopLeft="231.039682168204,202.642701249348">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="77.4902795480607,0"
-              Start="0,0"
-              End="69.9902795480607,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="69.9902795480607,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          TopLeft="131.452378658469,55.9780454340022" />
         <NodeLayout
           Size="154.857142857143,42.2857142857143"
           Id="Package\stage to nds\Sequence Container 2\Data Flow Task"
@@ -18762,37 +18774,15 @@ where [refTable].[source_id] = ? and [refTable].[defining_parameter] = ? and [re
           PanelSize="250.857142857143,249.714285714286"
           Size="250.857142857143,292.571428571429"
           Id="Package\stage to nds\Sequence Container 2"
-          TopLeft="305.626960577173,431.392842281095" />
-        <EdgeLayout
-          Id="Package\stage to nds.PrecedenceConstraints[Constraint 1]"
-          TopLeft="434.221318289576,357.599564364609">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,73.7932779164855"
-              Start="0,0"
-              End="0,66.2932779164855">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,66.2932779164855" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="169.714285714286,42.2857142857143"
-          Id="Package\stage to nds\Sequence Container 3\Execute SQL Task"
-          TopLeft="29.2989170686894,37.4349994601657" />
+          TopLeft="386.182514665609,425.483751700199" />
         <NodeLayout
           Size="154.857142857143,42.2857142857143"
           Id="Package\stage to nds\Sequence Container 3\Data Flow Task"
           TopLeft="40.7751072109832,115.036721784919" />
+        <NodeLayout
+          Size="169.714285714286,42.2857142857143"
+          Id="Package\stage to nds\Sequence Container 3\Execute SQL Task"
+          TopLeft="29.2989170686894,37.4349994601657" />
         <NodeLayout
           Size="178.857142857143,42.2857142857143"
           Id="Package\stage to nds\Sequence Container 3\Execute SQL Task 1"
@@ -18847,21 +18837,91 @@ where [refTable].[source_id] = ? and [refTable].[defining_parameter] = ? and [re
           PanelSize="214.285714285715,254.857142857143"
           Size="214.285714285715,297.714285714286"
           Id="Package\stage to nds\Sequence Container 3"
-          TopLeft="31.1269708217191,433.872284799941" />
+          TopLeft="131.126969000466,425.008648928597" />
         <EdgeLayout
-          Id="Package\stage to nds.PrecedenceConstraints[Constraint 2]"
-          TopLeft="305.626960577173,580.203992111946">
+          Id="Package\stage to nds.PrecedenceConstraints[Constraint]"
+          TopLeft="336.595235801326,207.566943400095">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-60.2142754697401,0"
+              EndConnector="44.1569468218119,0"
               Start="0,0"
-              End="-52.7142754697401,0">
+              End="36.6569468218119,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="-52.7142754697401,0" />
+                    End="36.6569468218119,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\stage to nds.PrecedenceConstraints[Constraint 1]"
+          TopLeft="510.610205787231,358.584412794759">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,66.8993389054404"
+              Start="0,0"
+              End="0,59.3993389054404">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,59.3993389054404" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\stage to nds.PrecedenceConstraints[Constraint 2]"
+          TopLeft="386.182514665609,572.817628885826">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-40.7698313794282,0"
+              Start="0,0"
+              End="-33.2698313794282,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-33.2698313794282,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="169.714285714286,42.2857142857143"
+          Id="Package\stage to nds\Execute SQL Task"
+          TopLeft="149.608450363905,760.889574233464" />
+        <EdgeLayout
+          Id="Package\stage to nds.PrecedenceConstraints[Constraint 3]"
+          TopLeft="236.367709682185,722.722934642883">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,38.1666395905811"
+              Start="0,0"
+              End="0,30.6666395905811">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.6666395905811" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -18873,24 +18933,36 @@ where [refTable].[source_id] = ? and [refTable].[defining_parameter] = ? and [re
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="645.142857142858,818.857142857143"
-          Size="645.142857142858,862.285714285715"
+          PanelSize="645.142857142858,862.857142857143"
+          Size="645.142857142858,906.285714285715"
           Id="Package\stage to nds"
-          TopLeft="751.343421339829,382.312755411884" />
+          TopLeft="687.454533614518,363.600635239047" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="630.087300185948,815.464808619145">
+          TopLeft="632.865077913136,791.867945499666">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="121.256121153881,0"
+              EndConnector="54.5894557013827,24.8755468822377"
               Start="0,0"
-              End="113.756121153881,0">
+              End="47.0894557013827,24.8755468822377">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="113.756121153881,0" />
+                    End="23.2947278506913,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="23.2947278506913,0"
+                    Point2="27.2947278506913,0"
+                    Point3="27.2947278506913,4" />
+                  <mssgle:LineSegment
+                    End="27.2947278506913,20.8755468822377" />
+                  <mssgle:CubicBezierSegment
+                    Point1="27.2947278506913,20.8755468822377"
+                    Point2="27.2947278506913,24.8755468822377"
+                    Point3="31.2947278506913,24.8755468822377" />
+                  <mssgle:LineSegment
+                    End="47.0894557013827,24.8755468822377" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -19616,7 +19688,9 @@ where [refTable].[source_id] = ? and [refTable].[defining_parameter] = ? and [re
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -19638,7 +19712,9 @@ where [refTable].[source_id] = ? and [refTable].[defining_parameter] = ? and [re
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -19732,7 +19808,9 @@ where [refTable].[source_id] = ? and [refTable].[defining_parameter] = ? and [re
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -19754,7 +19832,9 @@ where [refTable].[source_id] = ? and [refTable].[defining_parameter] = ? and [re
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -19776,7 +19856,9 @@ where [refTable].[source_id] = ? and [refTable].[defining_parameter] = ? and [re
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -19798,7 +19880,9 @@ where [refTable].[source_id] = ? and [refTable].[defining_parameter] = ? and [re
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -19883,67 +19967,77 @@ where [refTable].[source_id] = ? and [refTable].[defining_parameter] = ? and [re
       <GraphLayout
         Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
+          Size="133.142857142858,42.2857142857143"
+          Id="Package\stage to nds\Sequence Container\Data Flow Task\stage 2022"
+          TopLeft="572.999974384905,13.2857159397431" />
+        <NodeLayout
           Size="99.4285714285715,42.2857142857143"
           Id="Package\stage to nds\Sequence Container\Data Flow Task\Sort"
           TopLeft="204.857133699315,231.428561082908" />
         <NodeLayout
-          Size="166.285714285715,42.2857142857143"
-          Id="Package\stage to nds\Sequence Container\Data Flow Task\Derived Column 1"
-          TopLeft="177.499992065132,83.2142819943174" />
+          Size="185.142857142858,42.2857142857143"
+          Id="Package\stage to nds\Sequence Container\Data Flow Task\OLE DB Destination 1"
+          TopLeft="179.428563407489,489.734676692255" />
         <NodeLayout
-          Size="133.142857142858,42.2857142857143"
-          Id="Package\stage to nds\Sequence Container\Data Flow Task\Merge Join"
-          TopLeft="344.999984577299,234.999989494682" />
+          Size="114.857142857143,42.2857142857143"
+          Id="Package\stage to nds\Sequence Container\Data Flow Task\Lookup"
+          TopLeft="357.857126859683,320.510199387767" />
         <NodeLayout
           Size="133.142857142858,42.2857142857143"
           Id="Package\stage to nds\Sequence Container\Data Flow Task\Row Count"
           TopLeft="213.071419046394,403.785706670157" />
         <NodeLayout
           Size="133.142857142858,42.2857142857143"
-          Id="Package\stage to nds\Sequence Container\Data Flow Task\stage 2021"
-          TopLeft="392.992045732627,12.0584404021943" />
-        <NodeLayout
-          Size="108,42.2857142857143"
-          Id="Package\stage to nds\Sequence Container\Data Flow Task\Sort 1"
-          TopLeft="537.428547403644,236.714275132333" />
-        <NodeLayout
-          Size="114.857142857143,42.2857142857143"
-          Id="Package\stage to nds\Sequence Container\Data Flow Task\Lookup"
-          TopLeft="357.857126859683,320.510199387767" />
+          Id="Package\stage to nds\Sequence Container\Data Flow Task\Merge Join"
+          TopLeft="344.999984577299,234.999989494682" />
         <NodeLayout
           Size="162.857142857143,42.2857142857143"
           Id="Package\stage to nds\Sequence Container\Data Flow Task\state data csv"
           TopLeft="179.42856340749,17.2857148668595" />
         <NodeLayout
+          Size="108,42.2857142857143"
+          Id="Package\stage to nds\Sequence Container\Data Flow Task\Sort 1"
+          TopLeft="537.428547403644,236.714275132333" />
+        <NodeLayout
+          Size="166.285714285715,42.2857142857143"
+          Id="Package\stage to nds\Sequence Container\Data Flow Task\Derived Column 1"
+          TopLeft="177.499992065132,83.2142819943174" />
+        <NodeLayout
+          Size="113.714285714286,42.2857142857143"
+          Id="Package\stage to nds\Sequence Container\Data Flow Task\label id 2"
+          TopLeft="782.642822155996,90.1632707854918" />
+        <NodeLayout
+          Size="122.857142857143,42.2857142857143"
+          Id="Package\stage to nds\Sequence Container\Data Flow Task\Union All"
+          TopLeft="580.999974027277,163.999992668629" />
+        <NodeLayout
+          Size="108,42.2857142857143"
+          Id="Package\stage to nds\Sequence Container\Data Flow Task\Sort 2"
+          TopLeft="705.999968439342,237.999989360571" />
+        <NodeLayout
+          Size="113.714285714286,42.2857142857143"
+          Id="Package\stage to nds\Sequence Container\Data Flow Task\label id 1"
+          TopLeft="582.642831096692,92.0204133297103" />
+        <NodeLayout
+          Size="176.571428571429,42.2857142857143"
+          Id="Package\stage to nds\Sequence Container\Data Flow Task\OLE DB Destination"
+          TopLeft="502.999977514149,406.142848157457" />
+        <NodeLayout
+          Size="113.714285714286,42.2857142857143"
+          Id="Package\stage to nds\Sequence Container\Data Flow Task\label id"
+          TopLeft="397.999982208015,89.2857125422784" />
+        <NodeLayout
+          Size="133.142857142858,42.2857142857143"
+          Id="Package\stage to nds\Sequence Container\Data Flow Task\stage 2023"
+          TopLeft="773.642822558327,16.0204167271748" />
+        <NodeLayout
+          Size="133.142857142858,42.2857142857143"
+          Id="Package\stage to nds\Sequence Container\Data Flow Task\stage 2021"
+          TopLeft="392.992045732627,12.0584404021943" />
+        <NodeLayout
           Size="168.571428571429,42.2857142857143"
           Id="Package\stage to nds\Sequence Container\Data Flow Task\Data Conversion"
           TopLeft="176.642849246306,155.49999321465" />
-        <NodeLayout
-          Size="185.142857142858,42.2857142857143"
-          Id="Package\stage to nds\Sequence Container\Data Flow Task\OLE DB Destination 1"
-          TopLeft="179.428563407489,489.734676692255" />
-        <EdgeLayout
-          Id="Package\stage to nds\Sequence Container\Data Flow Task.Paths[Sort Output]"
-          TopLeft="304.285705127887,254.357132431652">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="40.7142794494123,0"
-              Start="0,0"
-              End="33.2142794494123,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="33.2142794494123,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <EdgeLayout
           Id="Package\stage to nds\Sequence Container\Data Flow Task.Paths[Row Count Output 1]"
           TopLeft="275.82141979837,446.071420955871">
@@ -19958,6 +20052,72 @@ where [refTable].[source_id] = ? and [refTable].[defining_parameter] = ? and [re
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,36.1632557363839" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\stage to nds\Sequence Container\Data Flow Task.Paths[OLE DB Source Output2]"
+          TopLeft="839.857108071447,58.3061310128891">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,31.8571397726027"
+              Start="0,0"
+              End="0,24.3571397726027">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.3571397726027" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\stage to nds\Sequence Container\Data Flow Task.Paths[OLE DB Source Output1]"
+          TopLeft="457.210299684607,54.3441546879086">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,34.9415578543698"
+              Start="0,0"
+              End="0,27.4415578543698">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.4415578543698" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\stage to nds\Sequence Container\Data Flow Task.Paths[OLE DB Source Output]"
+          TopLeft="639.535688455084,55.5714302254574">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,36.4489831042529"
+              Start="0,0"
+              End="0,28.9489831042529">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.9489831042529" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -20025,6 +20185,42 @@ where [refTable].[source_id] = ? and [refTable].[defining_parameter] = ? and [re
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package\stage to nds\Sequence Container\Data Flow Task.Paths[Lookup Match Output]"
+          TopLeft="433.095222097778,362.795913673481">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="158.190469702085,43.3469344839762"
+              Start="0,0"
+              End="158.190469702085,35.8469344839762">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.6960988668637" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.6960988668637"
+                    Point2="0,17.6960988668637"
+                    Point3="4,17.6960988668637" />
+                  <mssgle:LineSegment
+                    End="154.190469702085,17.6960988668637" />
+                  <mssgle:CubicBezierSegment
+                    Point1="154.190469702085,17.6960988668637"
+                    Point2="158.190469702085,17.6960988668637"
+                    Point3="158.190469702085,21.6960988668637" />
+                  <mssgle:LineSegment
+                    End="158.190469702085,35.8469344839762" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="30.9038481322925,22.6960988668637,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\stage to nds\Sequence Container\Data Flow Task.Paths[Flat File Source Output]"
           TopLeft="260.749992022025,59.5714291525738">
           <EdgeLayout.Curve>
@@ -20047,141 +20243,7 @@ where [refTable].[source_id] = ? and [refTable].[defining_parameter] = ? and [re
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\stage to nds\Sequence Container\Data Flow Task.Paths[Derived Column Output]"
-          TopLeft="260.785706370005,125.499996280032">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,29.9999969346184"
-              Start="0,0"
-              End="0,22.4999969346184">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,22.4999969346184" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\stage to nds\Sequence Container\Data Flow Task.Paths[Data Conversion Output]"
-          TopLeft="257.749991472811,197.785707500364">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,33.642853582544"
-              Start="0,0"
-              End="0,26.142853582544">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,26.142853582544" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="113.714285714286,42.2857142857143"
-          Id="Package\stage to nds\Sequence Container\Data Flow Task\label id"
-          TopLeft="397.999982208015,89.2857125422784" />
-        <EdgeLayout
-          Id="Package\stage to nds\Sequence Container\Data Flow Task.Paths[OLE DB Source Output]"
-          TopLeft="457.210299684607,54.3441546879086">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,34.9415578543698"
-              Start="0,0"
-              End="0,27.4415578543698">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,27.4415578543698" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="133.142857142858,42.2857142857143"
-          Id="Package\stage to nds\Sequence Container\Data Flow Task\stage 2022"
-          TopLeft="572.999974384905,13.2857159397431" />
-        <NodeLayout
-          Size="133.142857142858,42.2857142857143"
-          Id="Package\stage to nds\Sequence Container\Data Flow Task\stage 2023"
-          TopLeft="773.642822558327,16.0204167271748" />
-        <NodeLayout
-          Size="113.714285714286,42.2857142857143"
-          Id="Package\stage to nds\Sequence Container\Data Flow Task\label id 1"
-          TopLeft="582.642831096692,92.0204133297103" />
-        <NodeLayout
-          Size="113.714285714286,42.2857142857143"
-          Id="Package\stage to nds\Sequence Container\Data Flow Task\label id 2"
-          TopLeft="782.642822155996,90.1632707854918" />
-        <EdgeLayout
-          Id="Package\stage to nds\Sequence Container\Data Flow Task.Paths[OLE DB Source Output1]"
-          TopLeft="639.535688455084,55.5714302254574">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,36.4489831042529"
-              Start="0,0"
-              End="0,28.9489831042529">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,28.9489831042529" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\stage to nds\Sequence Container\Data Flow Task.Paths[OLE DB Source Output2]"
-          TopLeft="839.857108071447,58.3061310128891">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,31.8571397726027"
-              Start="0,0"
-              End="0,24.3571397726027">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,24.3571397726027" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="122.857142857143,42.2857142857143"
-          Id="Package\stage to nds\Sequence Container\Data Flow Task\Union All"
-          TopLeft="580.999974027277,163.999992668629" />
-        <EdgeLayout
-          Id="Package\stage to nds\Sequence Container\Data Flow Task.Paths[Derived Column Output1]"
+          Id="Package\stage to nds\Sequence Container\Data Flow Task.Paths[Derived Column Output3]"
           TopLeft="454.857125065157,131.571426827993">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -20237,7 +20299,7 @@ where [refTable].[source_id] = ? and [refTable].[defining_parameter] = ? and [re
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\stage to nds\Sequence Container\Data Flow Task.Paths[Derived Column Output3]"
+          Id="Package\stage to nds\Sequence Container\Data Flow Task.Paths[Derived Column Output1]"
           TopLeft="839.499965013139,132.448985071206">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -20270,10 +20332,50 @@ where [refTable].[source_id] = ? and [refTable].[defining_parameter] = ? and [re
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="108,42.2857142857143"
-          Id="Package\stage to nds\Sequence Container\Data Flow Task\Sort 2"
-          TopLeft="705.999968439342,237.999989360571" />
+        <EdgeLayout
+          Id="Package\stage to nds\Sequence Container\Data Flow Task.Paths[Derived Column Output]"
+          TopLeft="260.785706370005,125.499996280032">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,29.9999969346184"
+              Start="0,0"
+              End="0,22.4999969346184">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.4999969346184" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\stage to nds\Sequence Container\Data Flow Task.Paths[Data Conversion Output]"
+          TopLeft="257.749991472811,197.785707500364">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,33.642853582544"
+              Start="0,0"
+              End="0,26.142853582544">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.142853582544" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\stage to nds\Sequence Container\Data Flow Task.Paths[Union All Output 1]"
           TopLeft="642.428545455848,206.285706954343">
@@ -20309,68 +20411,6 @@ where [refTable].[source_id] = ? and [refTable].[defining_parameter] = ? and [re
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\stage to nds\Sequence Container\Data Flow Task.Paths[Sort Output1]"
-          TopLeft="705.999968439342,258.499989389309">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-60.571421035698,0"
-              Start="0,0"
-              End="-53.071421035698,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-53.071421035698,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="176.571428571429,42.2857142857143"
-          Id="Package\stage to nds\Sequence Container\Data Flow Task\OLE DB Destination"
-          TopLeft="502.999977514149,406.142848157457" />
-        <EdgeLayout
-          Id="Package\stage to nds\Sequence Container\Data Flow Task.Paths[Lookup Match Output]"
-          TopLeft="433.095222097778,362.795913673481">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="158.190469702085,43.3469344839762"
-              Start="0,0"
-              End="158.190469702085,35.8469344839762">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,13.6960988668637" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,13.6960988668637"
-                    Point2="0,17.6960988668637"
-                    Point3="4,17.6960988668637" />
-                  <mssgle:LineSegment
-                    End="154.190469702085,17.6960988668637" />
-                  <mssgle:CubicBezierSegment
-                    Point1="154.190469702085,17.6960988668637"
-                    Point2="158.190469702085,17.6960988668637"
-                    Point3="158.190469702085,21.6960988668637" />
-                  <mssgle:LineSegment
-                    End="158.190469702085,35.8469344839762" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="30.9038481322925,22.6960988668637,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package\stage to nds\Sequence Container\Data Flow Task.Paths[Sort Output2]"
           TopLeft="537.428547403644,256.999989456364">
           <EdgeLayout.Curve>
@@ -20392,11 +20432,68 @@ where [refTable].[source_id] = ? and [refTable].[defining_parameter] = ? and [re
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\stage to nds\Sequence Container\Data Flow Task.Paths[Sort Output1]"
+          TopLeft="705.999968439342,258.499989389309">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-60.571421035698,0"
+              Start="0,0"
+              End="-53.071421035698,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-53.071421035698,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\stage to nds\Sequence Container\Data Flow Task.Paths[Sort Output]"
+          TopLeft="304.285705127887,254.357132431652">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="40.7142794494123,0"
+              Start="0,0"
+              End="33.2142794494123,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="33.2142794494123,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\stage to nds\Sequence Container\Data Flow Task\stage 2021">
+    design-time-name="Package\stage to nds\Sequence Container\Data Flow Task\stage 2022">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\stage to nds\Sequence Container\Data Flow Task\OLE DB Destination 1">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -20419,7 +20516,7 @@ where [refTable].[source_id] = ? and [refTable].[defining_parameter] = ? and [re
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q3:int">0</Value>
+          type="q3:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -20427,25 +20524,12 @@ where [refTable].[source_id] = ? and [refTable].[defining_parameter] = ? and [re
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q4:boolean">false</Value>
+          type="q4:string">false</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\stage to nds\Sequence Container\Data Flow Task\OLE DB Destination 1">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\stage to nds\Sequence Container\Data Flow Task\stage 2022">
+    design-time-name="Package\stage to nds\Sequence Container\Data Flow Task\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -20471,7 +20555,7 @@ where [refTable].[source_id] = ? and [refTable].[defining_parameter] = ? and [re
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\stage to nds\Sequence Container\Data Flow Task\OLE DB Destination">
+    design-time-name="Package\stage to nds\Sequence Container\Data Flow Task\stage 2021">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -20489,193 +20573,73 @@ where [refTable].[source_id] = ? and [refTable].[defining_parameter] = ? and [re
       <GraphLayout
         Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
+          Size="113.714285714286,42.2857142857143"
+          Id="Package\stage to nds\Sequence Container 2\Data Flow Task\label id 1"
+          TopLeft="224.650783799444,113.961971407598" />
+        <NodeLayout
           Size="133.142857142858,42.2857142857143"
-          Id="Package\stage to nds\Sequence Container 2\Data Flow Task\stage 2021"
-          TopLeft="34.9999984353786,33.9999984800817" />
+          Id="Package\stage to nds\Sequence Container 2\Data Flow Task\stage 2022"
+          TopLeft="215.007927087657,35.2272740176304" />
+        <NodeLayout
+          Size="122.857142857143,42.2857142857143"
+          Id="Package\stage to nds\Sequence Container 2\Data Flow Task\Union All"
+          TopLeft="221.007926819436,190.941550522999" />
+        <NodeLayout
+          Size="133.142857142858,42.2857142857143"
+          Id="Package\stage to nds\Sequence Container 2\Data Flow Task\Merge Join"
+          TopLeft="459.999979436398,267.272715324706" />
+        <NodeLayout
+          Size="176.571428571429,42.2857142857143"
+          Id="Package\stage to nds\Sequence Container 2\Data Flow Task\OLE DB Destination"
+          TopLeft="46.9999978989365,429.285695107921" />
+        <NodeLayout
+          Size="185.142857142858,42.2857142857143"
+          Id="Package\stage to nds\Sequence Container 2\Data Flow Task\OLE DB Destination 1"
+          TopLeft="320.999985650182,439.999980330468" />
         <NodeLayout
           Size="113.714285714286,42.2857142857143"
           Id="Package\stage to nds\Sequence Container 2\Data Flow Task\label id"
           TopLeft="40.0079349107661,111.227270620166" />
         <NodeLayout
           Size="133.142857142858,42.2857142857143"
-          Id="Package\stage to nds\Sequence Container 2\Data Flow Task\stage 2022"
-          TopLeft="215.007927087657,35.2272740176304" />
+          Id="Package\stage to nds\Sequence Container 2\Data Flow Task\Row Count"
+          TopLeft="60.9999972730877,343.999984622002" />
+        <NodeLayout
+          Size="138.857142857143,42.2857142857143"
+          Id="Package\stage to nds\Sequence Container 2\Data Flow Task\Flat File Source"
+          TopLeft="586.248178866342,33.9999984800817" />
+        <NodeLayout
+          Size="114.857142857143,42.2857142857143"
+          Id="Package\stage to nds\Sequence Container 2\Data Flow Task\Lookup"
+          TopLeft="463.999979257585,345.999984532595" />
         <NodeLayout
           Size="133.142857142858,42.2857142857143"
-          Id="Package\stage to nds\Sequence Container 2\Data Flow Task\stage 2023"
-          TopLeft="387.196231078551,36.5074294155399" />
-        <NodeLayout
-          Size="113.714285714286,42.2857142857143"
-          Id="Package\stage to nds\Sequence Container 2\Data Flow Task\label id 1"
-          TopLeft="224.650783799444,113.961971407598" />
+          Id="Package\stage to nds\Sequence Container 2\Data Flow Task\stage 2021"
+          TopLeft="34.9999984353786,33.9999984800817" />
         <NodeLayout
           Size="113.714285714286,42.2857142857143"
           Id="Package\stage to nds\Sequence Container 2\Data Flow Task\label id 2"
           TopLeft="401.923503147464,109.377556258025" />
         <NodeLayout
-          Size="122.857142857143,42.2857142857143"
-          Id="Package\stage to nds\Sequence Container 2\Data Flow Task\Union All"
-          TopLeft="221.007926819436,190.941550522999" />
+          Size="117.142857142858,42.2857142857143"
+          Id="Package\stage to nds\Sequence Container 2\Data Flow Task\Sort 2 1"
+          TopLeft="601.767658692048,178.935056936045" />
+        <NodeLayout
+          Size="124,42.2857142857143"
+          Id="Package\stage to nds\Sequence Container 2\Data Flow Task\Lookup 1"
+          TopLeft="235.999989449978,343.999984622002" />
+        <NodeLayout
+          Size="160,42.2857142857143"
+          Id="Package\stage to nds\Sequence Container 2\Data Flow Task\Data Conversion"
+          TopLeft="580.339088221408,110.363631429998" />
+        <NodeLayout
+          Size="133.142857142858,42.2857142857143"
+          Id="Package\stage to nds\Sequence Container 2\Data Flow Task\stage 2023"
+          TopLeft="387.196231078551,36.5074294155399" />
         <NodeLayout
           Size="108,42.2857142857143"
           Id="Package\stage to nds\Sequence Container 2\Data Flow Task\Sort 2"
           TopLeft="229.371562809189,267.850637993986" />
-        <EdgeLayout
-          Id="Package\stage to nds\Sequence Container 2\Data Flow Task.Paths[OLE DB Source Output]"
-          TopLeft="99.2182523873583,76.285712765796">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,34.9415578543698"
-              Start="0,0"
-              End="0,27.4415578543698">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,27.4415578543698" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\stage to nds\Sequence Container 2\Data Flow Task.Paths[OLE DB Source Output1]"
-          TopLeft="281.543641157836,77.5129883033447">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,36.4489831042529"
-              Start="0,0"
-              End="0,28.9489831042529">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,28.9489831042529" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\stage to nds\Sequence Container 2\Data Flow Task.Paths[OLE DB Source Output2]"
-          TopLeft="456.274152827293,78.7931437012542">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,30.5844125567708"
-              Start="0,0"
-              End="0,23.0844125567708">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,23.0844125567708" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\stage to nds\Sequence Container 2\Data Flow Task.Paths[Derived Column Output]"
-          TopLeft="96.8650777679089,153.51298490588">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="156.857134765812,37.4285656171194"
-              Start="0,0"
-              End="156.857134765812,29.9285656171194">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.4222810551766" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,20.4222810551766"
-                    Point2="0,24.4222810551766"
-                    Point3="4,24.4222810551766" />
-                  <mssgle:LineSegment
-                    End="152.857134765812,24.4222810551766" />
-                  <mssgle:CubicBezierSegment
-                    Point1="152.857134765812,24.4222810551766"
-                    Point2="156.857134765812,24.4222810551766"
-                    Point3="156.857134765812,28.4222810551766" />
-                  <mssgle:LineSegment
-                    End="156.857134765812,29.9285656171194" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\stage to nds\Sequence Container 2\Data Flow Task.Paths[Derived Column Output1]"
-          TopLeft="281.972212452297,156.247685693312">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,34.6938648296875"
-              Start="0,0"
-              End="0,27.1938648296875">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,27.1938648296875" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\stage to nds\Sequence Container 2\Data Flow Task.Paths[Derived Column Output2]"
-          TopLeft="458.780646004607,151.663270543739">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-147.629862042314,39.2782799792602"
-              Start="0,0"
-              End="-147.629862042314,31.7782799792602">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,21.6292266935992" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,21.6292266935992"
-                    Point2="0,25.6292266935992"
-                    Point3="-4,25.6292266935992" />
-                  <mssgle:LineSegment
-                    End="-143.629862042314,25.6292266935992" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-143.629862042314,25.6292266935992"
-                    Point2="-147.629862042314,25.6292266935992"
-                    Point3="-147.629862042314,29.6292266935992" />
-                  <mssgle:LineSegment
-                    End="-147.629862042314,31.7782799792602" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <EdgeLayout
           Id="Package\stage to nds\Sequence Container 2\Data Flow Task.Paths[Union All Output 1]"
           TopLeft="282.904030528598,233.227264808714">
@@ -20695,89 +20659,9 @@ where [refTable].[source_id] = ? and [refTable].[defining_parameter] = ? and [re
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="138.857142857143,42.2857142857143"
-          Id="Package\stage to nds\Sequence Container 2\Data Flow Task\Flat File Source"
-          TopLeft="586.248178866342,33.9999984800817" />
-        <NodeLayout
-          Size="117.142857142858,42.2857142857143"
-          Id="Package\stage to nds\Sequence Container 2\Data Flow Task\Sort 2 1"
-          TopLeft="601.767658692048,178.935056936045" />
-        <NodeLayout
-          Size="160,42.2857142857143"
-          Id="Package\stage to nds\Sequence Container 2\Data Flow Task\Data Conversion"
-          TopLeft="580.339088221408,110.363631429998" />
-        <EdgeLayout
-          Id="Package\stage to nds\Sequence Container 2\Data Flow Task.Paths[Flat File Source Output]"
-          TopLeft="658.007919258161,76.2857127657959">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,34.0779186642016"
-              Start="0,0"
-              End="0,26.5779186642016">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,26.5779186642016" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\stage to nds\Sequence Container 2\Data Flow Task.Paths[Data Conversion Output]"
-          TopLeft="660.339087742442,152.649345715712">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,26.2857112203328"
-              Start="0,0"
-              End="0,18.7857112203328">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,18.7857112203328" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="133.142857142858,42.2857142857143"
-          Id="Package\stage to nds\Sequence Container 2\Data Flow Task\Merge Join"
-          TopLeft="459.999979436398,267.272715324706" />
-        <EdgeLayout
-          Id="Package\stage to nds\Sequence Container 2\Data Flow Task.Paths[Sort Output]"
-          TopLeft="337.371562809189,288.704533802203">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="122.62841662721,0"
-              Start="0,0"
-              End="115.12841662721,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="115.12841662721,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -20811,13 +20695,131 @@ where [refTable].[source_id] = ? and [refTable].[defining_parameter] = ? and [re
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="114.857142857143,42.2857142857143"
-          Id="Package\stage to nds\Sequence Container 2\Data Flow Task\Lookup"
-          TopLeft="463.999979257585,345.999984532595" />
+        <EdgeLayout
+          Id="Package\stage to nds\Sequence Container 2\Data Flow Task.Paths[Sort Output]"
+          TopLeft="337.371562809189,288.704533802203">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="122.62841662721,0"
+              Start="0,0"
+              End="115.12841662721,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="115.12841662721,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\stage to nds\Sequence Container 2\Data Flow Task.Paths[Row Count Output 1]"
+          TopLeft="131.428569014584,386.285698907716">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,42.9999962002042"
+              Start="0,0"
+              End="0,35.4999962002042">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.4999962002042" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\stage to nds\Sequence Container 2\Data Flow Task.Paths[OLE DB Source Output2]"
+          TopLeft="456.274152827293,78.7931437012542">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,30.5844125567708"
+              Start="0,0"
+              End="0,23.0844125567708">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.0844125567708" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\stage to nds\Sequence Container 2\Data Flow Task.Paths[OLE DB Source Output1]"
+          TopLeft="281.543641157836,77.5129883033447">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,36.4489831042529"
+              Start="0,0"
+              End="0,28.9489831042529">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.9489831042529" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\stage to nds\Sequence Container 2\Data Flow Task.Paths[OLE DB Source Output]"
+          TopLeft="99.2182523873583,76.285712765796">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,34.9415578543698"
+              Start="0,0"
+              End="0,27.4415578543698">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.4415578543698" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\stage to nds\Sequence Container 2\Data Flow Task.Paths[Merge Join Output]"
           TopLeft="523.999979346991,309.55842961042">
@@ -20837,38 +20839,8 @@ where [refTable].[source_id] = ? and [refTable].[defining_parameter] = ? and [re
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="133.142857142858,42.2857142857143"
-          Id="Package\stage to nds\Sequence Container 2\Data Flow Task\Row Count"
-          TopLeft="60.9999972730877,343.999984622002" />
-        <NodeLayout
-          Size="124,42.2857142857143"
-          Id="Package\stage to nds\Sequence Container 2\Data Flow Task\Lookup 1"
-          TopLeft="235.999989449978,343.999984622002" />
-        <EdgeLayout
-          Id="Package\stage to nds\Sequence Container 2\Data Flow Task.Paths[Lookup Match Output]"
-          TopLeft="463.999979257585,366.142841720156">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-103.999989807606,0"
-              Start="0,0"
-              End="-96.4999898076063,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-96.4999898076063,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-96.4413816225532,5,96.3827734375,11.609375"
+              BoundingBox="0,0,0,0"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -20896,36 +20868,6 @@ where [refTable].[source_id] = ? and [refTable].[defining_parameter] = ? and [re
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="176.571428571429,42.2857142857143"
-          Id="Package\stage to nds\Sequence Container 2\Data Flow Task\OLE DB Destination"
-          TopLeft="46.9999978989365,429.285695107921" />
-        <EdgeLayout
-          Id="Package\stage to nds\Sequence Container 2\Data Flow Task.Paths[Row Count Output 1]"
-          TopLeft="131.428569014584,386.285698907716">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,42.9999962002042"
-              Start="0,0"
-              End="0,35.4999962002042">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,35.4999962002042" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="185.142857142858,42.2857142857143"
-          Id="Package\stage to nds\Sequence Container 2\Data Flow Task\OLE DB Destination 1"
-          TopLeft="320.999985650182,439.999980330468" />
         <EdgeLayout
           Id="Package\stage to nds\Sequence Container 2\Data Flow Task.Paths[Lookup Match Output1]"
           TopLeft="297.999989449978,386.285698907717">
@@ -20962,22 +20904,177 @@ where [refTable].[source_id] = ? and [refTable].[defining_parameter] = ? and [re
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\stage to nds\Sequence Container 2\Data Flow Task.Paths[Lookup Match Output]"
+          TopLeft="463.999979257585,366.142841720156">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-103.999989807606,0"
+              Start="0,0"
+              End="-96.4999898076063,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-96.4999898076063,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-96.4413816225532,5,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\stage to nds\Sequence Container 2\Data Flow Task.Paths[Flat File Source Output]"
+          TopLeft="658.007919258161,76.2857127657959">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,34.0779186642016"
+              Start="0,0"
+              End="0,26.5779186642016">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.5779186642016" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\stage to nds\Sequence Container 2\Data Flow Task.Paths[Derived Column Output2]"
+          TopLeft="458.780646004607,151.663270543739">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-147.629862042314,39.2782799792602"
+              Start="0,0"
+              End="-147.629862042314,31.7782799792602">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.6292266935992" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.6292266935992"
+                    Point2="0,25.6292266935992"
+                    Point3="-4,25.6292266935992" />
+                  <mssgle:LineSegment
+                    End="-143.629862042314,25.6292266935992" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-143.629862042314,25.6292266935992"
+                    Point2="-147.629862042314,25.6292266935992"
+                    Point3="-147.629862042314,29.6292266935992" />
+                  <mssgle:LineSegment
+                    End="-147.629862042314,31.7782799792602" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\stage to nds\Sequence Container 2\Data Flow Task.Paths[Derived Column Output1]"
+          TopLeft="281.972212452297,156.247685693312">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,34.6938648296875"
+              Start="0,0"
+              End="0,27.1938648296875">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.1938648296875" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\stage to nds\Sequence Container 2\Data Flow Task.Paths[Derived Column Output]"
+          TopLeft="96.8650777679089,153.51298490588">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="156.857134765812,37.4285656171194"
+              Start="0,0"
+              End="156.857134765812,29.9285656171194">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.4222810551766" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.4222810551766"
+                    Point2="0,24.4222810551766"
+                    Point3="4,24.4222810551766" />
+                  <mssgle:LineSegment
+                    End="152.857134765812,24.4222810551766" />
+                  <mssgle:CubicBezierSegment
+                    Point1="152.857134765812,24.4222810551766"
+                    Point2="156.857134765812,24.4222810551766"
+                    Point3="156.857134765812,28.4222810551766" />
+                  <mssgle:LineSegment
+                    End="156.857134765812,29.9285656171194" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\stage to nds\Sequence Container 2\Data Flow Task.Paths[Data Conversion Output]"
+          TopLeft="660.339087742442,152.649345715712">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,26.2857112203328"
+              Start="0,0"
+              End="0,18.7857112203328">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.7857112203328" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\stage to nds\Sequence Container 2\Data Flow Task\stage 2021">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\stage to nds\Sequence Container 2\Data Flow Task\stage 2022">
     <Properties>
@@ -20988,65 +21085,6 @@ where [refTable].[source_id] = ? and [refTable].[defining_parameter] = ? and [re
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\stage to nds\Sequence Container 2\Data Flow Task\stage 2023">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\stage to nds\Sequence Container 2\Data Flow Task\Lookup">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[NDS].[tbl_states]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\stage to nds\Sequence Container 2\Data Flow Task\Lookup 1">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[NDS].[tbl_counties]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -21076,6 +21114,78 @@ where [refTable].[source_id] = ? and [refTable].[defining_parameter] = ? and [re
       </Property>
     </Properties>
   </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\stage to nds\Sequence Container 2\Data Flow Task\Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[NDS].[tbl_states]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\stage to nds\Sequence Container 2\Data Flow Task\stage 2021">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\stage to nds\Sequence Container 2\Data Flow Task\Lookup 1">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[NDS].[tbl_counties]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\stage to nds\Sequence Container 2\Data Flow Task\stage 2023">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\stage to nds\Sequence Container 3\Data Flow Task">
     <LayoutInfo>
@@ -21083,366 +21193,60 @@ where [refTable].[source_id] = ? and [refTable].[defining_parameter] = ? and [re
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="113.714285714286,42.2857142857143"
-          Id="Package\stage to nds\Sequence Container 3\Data Flow Task\label id"
-          TopLeft="40.0079349107661,111.227270620166" />
-        <NodeLayout
-          Size="108,42.2857142857143"
-          Id="Package\stage to nds\Sequence Container 3\Data Flow Task\Sort 2"
-          TopLeft="229.371562809189,267.850637993986" />
-        <NodeLayout
-          Size="113.714285714286,42.2857142857143"
           Id="Package\stage to nds\Sequence Container 3\Data Flow Task\label id 2"
           TopLeft="401.923503147464,109.377556258025" />
         <NodeLayout
           Size="133.142857142858,42.2857142857143"
-          Id="Package\stage to nds\Sequence Container 3\Data Flow Task\stage 2023"
-          TopLeft="387.196231078551,36.5074294155399" />
-        <NodeLayout
-          Size="133.142857142858,42.2857142857143"
           Id="Package\stage to nds\Sequence Container 3\Data Flow Task\stage 2021"
           TopLeft="34.9999984353786,33.9999984800817" />
-        <EdgeLayout
-          Id="Package\stage to nds\Sequence Container 3\Data Flow Task.Paths[OLE DB Source Output1]"
-          TopLeft="456.274152827293,78.7931437012542">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,30.5844125567708"
-              Start="0,0"
-              End="0,23.0844125567708">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,23.0844125567708" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\stage to nds\Sequence Container 3\Data Flow Task.Paths[OLE DB Source Output]"
-          TopLeft="99.2182523873583,76.285712765796">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,34.9415578543698"
-              Start="0,0"
-              End="0,27.4415578543698">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,27.4415578543698" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <NodeLayout
           Size="123.428571428572,42.2857142857143"
           Id="Package\stage to nds\Sequence Container 3\Data Flow Task\find state"
           TopLeft="395.999982297421,266.99998806417" />
-        <EdgeLayout
-          Id="Package\stage to nds\Sequence Container 3\Data Flow Task.Paths[Sort Output]"
-          TopLeft="337.371562809189,288.568170171935">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="58.6284194882324,0"
-              Start="0,0"
-              End="51.1284194882324,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="51.1284194882324,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="132,42.2857142857143"
-          Id="Package\stage to nds\Sequence Container 3\Data Flow Task\find county"
-          TopLeft="387.999982655049,353.999984174968" />
-        <EdgeLayout
-          Id="Package\stage to nds\Sequence Container 3\Data Flow Task.Paths[Lookup Match Output]"
-          TopLeft="455.857125333378,309.285702349885">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,44.7142818250829"
-              Start="0,0"
-              End="0,37.2142818250829">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,37.2142818250829" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,12.8024534125415,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="114.857142857143,42.2857142857143"
-          Id="Package\stage to nds\Sequence Container 3\Data Flow Task\Lookup"
-          TopLeft="229.999989718199,349.999984353782" />
-        <EdgeLayout
-          Id="Package\stage to nds\Sequence Container 3\Data Flow Task.Paths[Lookup Match Output1]"
-          TopLeft="387.999982655049,373.142841407232">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-43.1428500797069,0"
-              Start="0,0"
-              End="-35.6428500797069,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-35.6428500797069,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-66.0128117586034,5,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="122.857142857143,42.2857142857143"
-          Id="Package\stage to nds\Sequence Container 3\Data Flow Task\Union All"
-          TopLeft="220.833323461314,182.499991841615" />
-        <EdgeLayout
-          Id="Package\stage to nds\Sequence Container 3\Data Flow Task.Paths[Derived Column Output]"
-          TopLeft="96.865077767909,153.51298490588">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="156.682531407691,28.9870069357344"
-              Start="0,0"
-              End="156.682531407691,21.4870069357344">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,14.9141319914504" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,14.9141319914504"
-                    Point2="0,18.9141319914504"
-                    Point3="4,18.9141319914504" />
-                  <mssgle:LineSegment
-                    End="152.682531407691,18.9141319914504" />
-                  <mssgle:CubicBezierSegment
-                    Point1="152.682531407691,18.9141319914504"
-                    Point2="156.682531407691,18.9141319914504"
-                    Point3="156.682531407691,22.9141319914504" />
-                  <mssgle:LineSegment
-                    End="156.682531407691,21.4870069357344" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\stage to nds\Sequence Container 3\Data Flow Task.Paths[Derived Column Output1]"
-          TopLeft="458.780646004607,151.663270543739">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-147.804465400435,30.8367212978754"
-              Start="0,0"
-              End="-147.804465400435,23.3367212978754">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,16.1210776298731" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,16.1210776298731"
-                    Point2="0,20.1210776298731"
-                    Point3="-4,20.1210776298731" />
-                  <mssgle:LineSegment
-                    End="-143.804465400435,20.1210776298731" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-143.804465400435,20.1210776298731"
-                    Point2="-147.804465400435,20.1210776298731"
-                    Point3="-147.804465400435,24.1210776298731" />
-                  <mssgle:LineSegment
-                    End="-147.804465400435,23.3367212978754" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\stage to nds\Sequence Container 3\Data Flow Task.Paths[Union All Output 1]"
-          TopLeft="282.816728849537,224.785706127329">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,43.0649318666571"
-              Start="0,0"
-              End="0,35.5649318666571">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,35.5649318666571" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <NodeLayout
           Size="113.714285714286,42.2857142857143"
           Id="Package\stage to nds\Sequence Container 3\Data Flow Task\label id 1"
           TopLeft="225.999989897013,103.999995350838" />
-        <EdgeLayout
-          Id="Package\stage to nds\Sequence Container 3\Data Flow Task.Paths[Derived Column Output2]"
-          TopLeft="282.559513822021,146.285709636552">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,36.2142822050625"
-              Start="0,0"
-              End="0,28.7142822050625">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,28.7142822050625" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <NodeLayout
           Size="156.571428571429,42.2857142857143"
           Id="Package\stage to nds\Sequence Container 3\Data Flow Task\OLE DB Source"
           TopLeft="212.999990478158,32.9999985247851" />
-        <EdgeLayout
-          Id="Package\stage to nds\Sequence Container 3\Data Flow Task.Paths[OLE DB Source Output2]"
-          TopLeft="291.285704763873,75.2857128104994">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-8.42857200971679,28.7142825403385"
-              Start="0,0"
-              End="-8.42857200971679,21.2142825403385">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,10.3571412701693" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,10.3571412701693"
-                    Point2="0,14.3571412701693"
-                    Point3="-4,14.3571412701693" />
-                  <mssgle:LineSegment
-                    End="-4.42857200971679,14.3571412701693" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-4.42857200971679,14.3571412701693"
-                    Point2="-8.42857200971679,14.3571412701693"
-                    Point3="-8.42857200971679,18.3571412701693" />
-                  <mssgle:LineSegment
-                    End="-8.42857200971679,21.2142825403385" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+        <NodeLayout
+          Size="185.142857142858,42.2857142857143"
+          Id="Package\stage to nds\Sequence Container 3\Data Flow Task\OLE DB Destination 1"
+          TopLeft="354.999984130264,455.833312955996" />
         <NodeLayout
           Size="176.571428571429,42.2857142857143"
           Id="Package\stage to nds\Sequence Container 3\Data Flow Task\OLE DB Destination"
           TopLeft="44.9999979883434,436.666647146146" />
         <NodeLayout
+          Size="113.714285714286,42.2857142857143"
+          Id="Package\stage to nds\Sequence Container 3\Data Flow Task\label id"
+          TopLeft="40.0079349107661,111.227270620166" />
+        <NodeLayout
+          Size="122.857142857143,42.2857142857143"
+          Id="Package\stage to nds\Sequence Container 3\Data Flow Task\Union All"
+          TopLeft="220.833323461314,182.499991841615" />
+        <NodeLayout
           Size="133.142857142858,42.2857142857143"
           Id="Package\stage to nds\Sequence Container 3\Data Flow Task\Row Count"
           TopLeft="68.3333302785955,349.999984353781" />
-        <EdgeLayout
-          Id="Package\stage to nds\Sequence Container 3\Data Flow Task.Paths[Lookup No Match Output]"
-          TopLeft="229.999989718199,371.142841496639">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-28.5238022967467,0"
-              Start="0,0"
-              End="-21.0238022967467,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-21.0238022967467,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-66.3182878671234,5,111.6127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\stage to nds\Sequence Container 3\Data Flow Task.Paths[Row Count Output 1]"
-          TopLeft="134.095235562041,392.285698639496">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,44.3809485066507"
-              Start="0,0"
-              End="0,36.8809485066507">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,36.8809485066507" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <NodeLayout
-          Size="185.142857142858,42.2857142857143"
-          Id="Package\stage to nds\Sequence Container 3\Data Flow Task\OLE DB Destination 1"
-          TopLeft="354.999984130264,455.833312955996" />
+          Size="114.857142857143,42.2857142857143"
+          Id="Package\stage to nds\Sequence Container 3\Data Flow Task\Lookup"
+          TopLeft="229.999989718199,349.999984353782" />
+        <NodeLayout
+          Size="133.142857142858,42.2857142857143"
+          Id="Package\stage to nds\Sequence Container 3\Data Flow Task\stage 2023"
+          TopLeft="387.196231078551,36.5074294155399" />
+        <NodeLayout
+          Size="132,42.2857142857143"
+          Id="Package\stage to nds\Sequence Container 3\Data Flow Task\find county"
+          TopLeft="387.999982655049,353.999984174968" />
+        <NodeLayout
+          Size="108,42.2857142857143"
+          Id="Package\stage to nds\Sequence Container 3\Data Flow Task\Sort 2"
+          TopLeft="229.371562809189,267.850637993986" />
         <EdgeLayout
           Id="Package\stage to nds\Sequence Container 3\Data Flow Task.Paths[Lookup Match Output2]"
           TopLeft="287.428561146771,392.285698639496">
@@ -21479,17 +21283,333 @@ where [refTable].[source_id] = ? and [refTable].[defining_parameter] = ? and [re
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\stage to nds\Sequence Container 3\Data Flow Task.Paths[Lookup Match Output1]"
+          TopLeft="387.999982655049,373.142841407232">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-43.1428500797069,0"
+              Start="0,0"
+              End="-35.6428500797069,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-35.6428500797069,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-66.0128117586034,5,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\stage to nds\Sequence Container 3\Data Flow Task.Paths[Lookup Match Output]"
+          TopLeft="455.857125333378,309.285702349885">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,44.7142818250829"
+              Start="0,0"
+              End="0,37.2142818250829">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.2142818250829" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,12.8024534125415,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\stage to nds\Sequence Container 3\Data Flow Task.Paths[Derived Column Output2]"
+          TopLeft="282.559513822021,146.285709636552">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,36.2142822050625"
+              Start="0,0"
+              End="0,28.7142822050625">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.7142822050625" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\stage to nds\Sequence Container 3\Data Flow Task.Paths[Derived Column Output1]"
+          TopLeft="458.780646004607,151.663270543739">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-147.804465400435,30.8367212978754"
+              Start="0,0"
+              End="-147.804465400435,23.3367212978754">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.1210776298731" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.1210776298731"
+                    Point2="0,20.1210776298731"
+                    Point3="-4,20.1210776298731" />
+                  <mssgle:LineSegment
+                    End="-143.804465400435,20.1210776298731" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-143.804465400435,20.1210776298731"
+                    Point2="-147.804465400435,20.1210776298731"
+                    Point3="-147.804465400435,24.1210776298731" />
+                  <mssgle:LineSegment
+                    End="-147.804465400435,23.3367212978754" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\stage to nds\Sequence Container 3\Data Flow Task.Paths[Derived Column Output]"
+          TopLeft="96.865077767909,153.51298490588">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="156.682531407691,28.9870069357344"
+              Start="0,0"
+              End="156.682531407691,21.4870069357344">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14.9141319914504" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.9141319914504"
+                    Point2="0,18.9141319914504"
+                    Point3="4,18.9141319914504" />
+                  <mssgle:LineSegment
+                    End="152.682531407691,18.9141319914504" />
+                  <mssgle:CubicBezierSegment
+                    Point1="152.682531407691,18.9141319914504"
+                    Point2="156.682531407691,18.9141319914504"
+                    Point3="156.682531407691,22.9141319914504" />
+                  <mssgle:LineSegment
+                    End="156.682531407691,21.4870069357344" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\stage to nds\Sequence Container 3\Data Flow Task.Paths[Union All Output 1]"
+          TopLeft="282.816728849537,224.785706127329">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,43.0649318666571"
+              Start="0,0"
+              End="0,35.5649318666571">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.5649318666571" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\stage to nds\Sequence Container 3\Data Flow Task.Paths[Sort Output]"
+          TopLeft="337.371562809189,288.568170171935">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="58.6284194882324,0"
+              Start="0,0"
+              End="51.1284194882324,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="51.1284194882324,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\stage to nds\Sequence Container 3\Data Flow Task.Paths[Row Count Output 1]"
+          TopLeft="134.095235562041,392.285698639496">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,44.3809485066507"
+              Start="0,0"
+              End="0,36.8809485066507">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.8809485066507" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\stage to nds\Sequence Container 3\Data Flow Task.Paths[OLE DB Source Output2]"
+          TopLeft="291.285704763873,75.2857128104994">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-8.42857200971679,28.7142825403385"
+              Start="0,0"
+              End="-8.42857200971679,21.2142825403385">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,10.3571412701693" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10.3571412701693"
+                    Point2="0,14.3571412701693"
+                    Point3="-4,14.3571412701693" />
+                  <mssgle:LineSegment
+                    End="-4.42857200971679,14.3571412701693" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-4.42857200971679,14.3571412701693"
+                    Point2="-8.42857200971679,14.3571412701693"
+                    Point3="-8.42857200971679,18.3571412701693" />
+                  <mssgle:LineSegment
+                    End="-8.42857200971679,21.2142825403385" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\stage to nds\Sequence Container 3\Data Flow Task.Paths[OLE DB Source Output1]"
+          TopLeft="456.274152827293,78.7931437012542">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,30.5844125567708"
+              Start="0,0"
+              End="0,23.0844125567708">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.0844125567708" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\stage to nds\Sequence Container 3\Data Flow Task.Paths[OLE DB Source Output]"
+          TopLeft="99.2182523873583,76.285712765796">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,34.9415578543698"
+              Start="0,0"
+              End="0,27.4415578543698">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.4415578543698" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\stage to nds\Sequence Container 3\Data Flow Task.Paths[Lookup No Match Output]"
+          TopLeft="229.999989718199,371.142841496639">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-28.5238022967467,0"
+              Start="0,0"
+              End="-21.0238022967467,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-21.0238022967467,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-66.3182878671234,5,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\stage to nds\Sequence Container 3\Data Flow Task\stage 2023">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\stage to nds\Sequence Container 3\Data Flow Task\stage 2021">
     <Properties>
@@ -21504,7 +21624,7 @@ where [refTable].[source_id] = ? and [refTable].[defining_parameter] = ? and [re
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -21514,53 +21634,7 @@ where [refTable].[source_id] = ? and [refTable].[defining_parameter] = ? and [re
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\stage to nds\Sequence Container 3\Data Flow Task\find county">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[NDS].[tbl_counties]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\stage to nds\Sequence Container 3\Data Flow Task\Lookup">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[NDS].[tbl_aqi]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -21572,6 +21646,19 @@ where [refTable].[source_id] = ? and [refTable].[defining_parameter] = ? and [re
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\stage to nds\Sequence Container 3\Data Flow Task\OLE DB Destination 1">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -21589,15 +21676,56 @@ where [refTable].[source_id] = ? and [refTable].[defining_parameter] = ? and [re
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\stage to nds\Sequence Container 3\Data Flow Task\OLE DB Destination 1">
+    design-time-name="Package\stage to nds\Sequence Container 3\Data Flow Task\Lookup">
     <Properties>
       <Property>
-        <Name>DataSourceViewID</Name>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[NDS].[tbl_aqi]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q2:string">Table</Value>
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\stage to nds\Sequence Container 3\Data Flow Task\stage 2023">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\stage to nds\Sequence Container 3\Data Flow Task\find county">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[NDS].[tbl_counties]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
