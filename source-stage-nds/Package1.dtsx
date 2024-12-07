@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="48"
-  DTS:VersionGUID="{8505C867-667C-4AF0-8C96-1BA773C8D813}">
+  DTS:VersionBuild="49"
+  DTS:VersionGUID="{16E8AB2D-5922-48D9-9701-2D51B82AE6D6}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -29,7 +29,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAB/5FVsbE70qCpweJOwVhiQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADdRVUm9ELOdEN7F8hyrX6SKx0koW5no807fsrtSKV9+gAAAAAOgAAAAAIAACAAAADinChnpUcB/Kgqhr/2R5McKJ7+tTSQD9hmEnlxYP/L8iAAAAD0meMqdg5NYLIA6VPgBfD4QZACui0SHwUWFDGa2teFpkAAAADtvStB/vfy/KHTVu4iNj6uL3loQkr0mr2vLd/K2lgc4mxWgrKtltEx9nv/5mlBVaqvTvtByNXeZbO6IJhVuank</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAB/5FVsbE70qCpweJOwVhiQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACqioqkd8t/CwFvkLwIA18gR8099vPlR9NDYAYoI7GdTQAAAAAOgAAAAAIAACAAAACgiJQNYZmxzeYNCnudieF+tW6xsag3MFzUTNtqbemLdSAAAAA6LZfI/RZhr062Ga6zHEhQ+hwQ9xMUB+ukrUVOtTd3gEAAAAB9k3KipeVW1ksFcLWxIqGkKltafqjaKwzne5SWYS6+L1b8j3RjlvPQ1bztKQMl0a1HqsFauW0681pMNoZwln5+</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -3762,7 +3762,7 @@ where [refTable].[aqi_id] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Execute SQL Task"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -3847,6 +3847,14 @@ where [refTable].[aqi_id] = ?</property>
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 3"
       DTS:To="Package\Sequence Container 5" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{3B31A185-5E24-4387-A2F0-195AD3C364EC}"
+      DTS:From="Package\Sequence Container 4"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\Sequence Container" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -3861,11 +3869,11 @@ where [refTable].[aqi_id] = ?</property>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="130.4,42.4"
+          Size="130.285714285715,42.2857142857143"
           Id="Package\Sequence Container\Data Flow Task"
           TopLeft="37.8015856877548,46.0034539221589" />
         <NodeLayout
-          Size="130.4,42.4"
+          Size="130.285714285715,42.2857142857143"
           Id="Package\Sequence Container\Execute SQL Task 1"
           TopLeft="43.6349187630775,146.930721296512" />
         <EdgeLayout
@@ -3893,16 +3901,16 @@ where [refTable].[aqi_id] = ?</property>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="200,248.8"
+          PanelSize="200,249.142857142858"
           Size="200,292"
           Id="Package\Sequence Container"
           TopLeft="318.611096718154,80.9939284949778" />
         <NodeLayout
-          Size="155.2,42.4"
+          Size="155.428571428572,42.2857142857143"
           Id="Package\Sequence Container 1\Data Flow Task"
           TopLeft="27.6428494177096,43.5796459744075" />
         <NodeLayout
-          Size="169.6,42.4"
+          Size="169.714285714286,42.2857142857143"
           Id="Package\Sequence Container 1\Execute SQL Task"
           TopLeft="19.3095165396896,140.606913691695" />
         <EdgeLayout
@@ -3930,27 +3938,27 @@ where [refTable].[aqi_id] = ?</property>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="204,250.4"
-          Size="204,293.6"
+          PanelSize="204,250.857142857143"
+          Size="204,293.714285714286"
           Id="Package\Sequence Container 1"
           TopLeft="587.777758391553,78.0995681870573" />
         <NodeLayout
-          Size="155.2,42.4"
+          Size="155.428571428572,42.2857142857143"
           Id="Package\Sequence Container 2\Data Flow Task"
           TopLeft="19.7698299224242,74.3480442616082" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="196.8,248"
-          Size="196.8,291.2"
+          PanelSize="196.571428571429,248"
+          Size="196.571428571429,291.428571428572"
           Id="Package\Sequence Container 2"
           TopLeft="593.888878619048,443.21082655595" />
         <NodeLayout
-          Size="155.2,42.4"
+          Size="155.428571428572,42.2857142857143"
           Id="Package\Sequence Container 3\Data Flow Task"
           TopLeft="27.4603084957057,42.1255201156901" />
         <NodeLayout
-          Size="164.8,41.6"
+          Size="164.571428571429,41.7142857142858"
           Id="Package\Sequence Container 3\Execute SQL Task"
           TopLeft="18.9999489138552,144.599997993112" />
         <EdgeLayout
@@ -3978,10 +3986,32 @@ where [refTable].[aqi_id] = ?</property>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="198.4,248.8"
-          Size="198.4,292"
+          PanelSize="198.285714285715,249.142857142858"
+          Size="198.285714285715,292"
           Id="Package\Sequence Container 3"
           TopLeft="319.811168247862,444.961444199218" />
+        <NodeLayout
+          Size="132,42.2857142857143"
+          Id="Package\Sequence Container 4\Execute SQL Task"
+          TopLeft="30.8349328474336,75.1913364134717" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="195.428571428572,247.428571428572"
+          Size="195.428571428572,290.285714285715"
+          Id="Package\Sequence Container 4"
+          TopLeft="71.6666627509729,79.7333327788777" />
+        <NodeLayout
+          Size="164.571428571429,41.7142857142858"
+          Id="Package\Sequence Container 5\Execute SQL Task"
+          TopLeft="20.0999954923989,86.5999960043033" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="200,243.428571428572"
+          Size="200,286.285714285715"
+          Id="Package\Sequence Container 5"
+          TopLeft="70.9000016391277,444.599996908307" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="518.611096718154,225.946748341018">
@@ -4048,28 +4078,6 @@ where [refTable].[aqi_id] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="132,42.4"
-          Id="Package\Sequence Container 4\Execute SQL Task"
-          TopLeft="30.8349328474336,75.1913364134717" />
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="195.2,247.2"
-          Size="195.2,290.4"
-          Id="Package\Sequence Container 4"
-          TopLeft="71.6666627509729,79.7333327788777" />
-        <NodeLayout
-          Size="164.8,41.6"
-          Id="Package\Sequence Container 5\Execute SQL Task"
-          TopLeft="20.0999954923989,86.5999960043033" />
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="200,243.2"
-          Size="200,286.4"
-          Id="Package\Sequence Container 5"
-          TopLeft="70.9000016391277,444.599996908307" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
           TopLeft="319.811168247862,589.380720553762">
@@ -4084,6 +4092,28 @@ where [refTable].[aqi_id] = ?</property>
                   Capacity="5">
                   <mssgle:LineSegment
                     End="-41.4111666087339,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="267.095234179544,225.935059208356">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="51.5158625386097,0"
+              Start="0,0"
+              End="44.0158625386097,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="44.0158625386097,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4836,7 +4866,7 @@ where [refTable].[aqi_id] = ?</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Sequence Container 3\Data Flow Task\OLE DB Destination">
+    design-time-name="Package\Sequence Container 3\Data Flow Task\OLE DB Source">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -4849,7 +4879,30 @@ where [refTable].[aqi_id] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Sequence Container 3\Data Flow Task\OLE DB Source">
+    design-time-name="Package\Sequence Container 3\Data Flow Task\Lookup 1">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dds].[tbl_fact_aqi]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container 3\Data Flow Task\OLE DB Destination 1">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -4885,30 +4938,7 @@ where [refTable].[aqi_id] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Sequence Container 3\Data Flow Task\Lookup 1">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dds].[tbl_fact_aqi]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Sequence Container 3\Data Flow Task\OLE DB Destination 1">
+    design-time-name="Package\Sequence Container 3\Data Flow Task\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
