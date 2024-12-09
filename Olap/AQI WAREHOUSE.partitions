@@ -1,0 +1,85 @@
+﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="3f982c0f-96d7-4c40-8d6f-004795ed7fef" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>AQI WAREHOUSE</ID>
+  <MeasureGroups>
+    <MeasureGroup>
+      <ID>Tbl Fact Aqi</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="e5859853-ea90-405d-9cc5-c5578f1ae819">
+          <ID>Tbl Fact Aqi</ID>
+          <Name>Tbl Fact Aqi</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="a9671f6d-8fab-406b-a3f2-60fc00ffc3c4">
+            <DataSourceViewID>AQI WAREHOUSE</DataSourceViewID>
+            <TableID>dds_tbl_fact_aqi</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Tbl Dim States</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="1f76b3c9-eff0-4ab5-a0e1-d3e536e7593b">
+          <ID>Tbl Dim States</ID>
+          <Name>Tbl Dim States</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="20dff266-2df6-44d9-8841-b334f1964d0d">
+            <DataSourceViewID>AQI WAREHOUSE</DataSourceViewID>
+            <TableID>dds_tbl_dim_states</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Tbl Dim Date</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="49002345-a9c0-4804-bb10-5714d63d469b">
+          <ID>Tbl Dim Date</ID>
+          <Name>Tbl Dim Date</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="6328c2c4-c8e0-42dd-b04e-3aa98c177485">
+            <DataSourceViewID>AQI WAREHOUSE</DataSourceViewID>
+            <TableID>dds_tbl_dim_date</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Tbl Dim Counties</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="ac686e98-53b0-47ea-9b5f-25e377ad6a70">
+          <ID>Tbl Dim Counties</ID>
+          <Name>Tbl Dim Counties</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="1e7edbf7-4723-4633-a8bf-735ebcbe1ac8">
+            <DataSourceViewID>AQI WAREHOUSE</DataSourceViewID>
+            <TableID>dds_tbl_dim_counties</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+  </MeasureGroups>
+</Cube>
